@@ -1,0 +1,132 @@
+.topnav {
+  background-color: var(--text-primary);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.topnav a {
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-width: 80px;
+}
+
+.topnav a:hover {
+  background-color: var(--text-secondary);
+  transform: translateY(-2px);
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  max-width: 400px;
+  margin: 0 1rem;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 8px 12px;
+  border: 2px solid #555;
+  border-radius: 4px;
+  background-color: #444;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.searchInput::placeholder {
+  color: #ccc;
+}
+
+.searchInput:focus {
+  border-color: #4CAF50;
+}
+
+.searchButton {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.searchButton:hover {
+  background-color: #45a049;
+}
+
+.nav-content {
+  padding: 20px;
+  min-height: calc(100vh - 80px);
+  background-color: var(--bg-app);
+}
+
+.themeToggleBtn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-left: 0.5rem;
+  padding: 0;
+  outline: none;
+}
+
+.themeToggleBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+.themeToggleBtn:active {
+  transform: scale(0.95);
+}
+
+/* Dark mode adjustment for Topnav */
+[data-theme="dark"] .topnav {
+  background-color: var(--bg-card) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .topnav a:hover {
+  background-color: var(--bg-app) !important;
+}
+
+[data-theme="dark"] .themeToggleBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .themeToggleBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+

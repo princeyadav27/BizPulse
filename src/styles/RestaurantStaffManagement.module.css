@@ -1,0 +1,654 @@
+.staffManagement {
+  padding: 2rem;
+  background-color: var(--bg-content);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin: 0;
+  font-weight: 700;
+}
+
+.stats {
+  display: flex;
+  gap: 1rem;
+}
+
+.statCard {
+  background: var(--bg-card);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  min-width: 120px;
+}
+
+.statNumber {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ff6b6b;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  background: var(--bg-card);
+  padding: 0.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tab {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-secondary);
+}
+
+.tab:hover {
+  background: var(--bg-app);
+}
+
+.tab.active {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+}
+
+.formSection {
+  background: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.formSection h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem 0;
+  font-weight: 600;
+}
+
+.staffForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formRow {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.input,
+.select {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: #ff6b6b;
+}
+
+.addBtn {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.addBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+.staffGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.staffCard {
+  background: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.staffCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.staffHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.staffInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.staffAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.staffInfo h3 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin: 0 0 0.25rem 0;
+  font-weight: 600;
+}
+
+.role {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.staffActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.statusBtn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.statusBtn:hover {
+  background: #218838;
+}
+
+.deleteBtn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.deleteBtn:hover {
+  background: #c82333;
+}
+
+.staffDetails {
+  padding: 1.5rem;
+}
+
+.staffDetails p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.attendanceControls {
+  background: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.monthSelector {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.monthSelector label {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.attendanceGrid {
+  background: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.attendanceHeader {
+  display: grid;
+  grid-template-columns: 200px repeat(auto-fit, minmax(40px, 1fr));
+  gap: 0.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.headerCell {
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.dayCell {
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  background: var(--bg-card);
+  border-radius: 4px;
+}
+
+.attendanceRow {
+  display: grid;
+  grid-template-columns: 200px repeat(auto-fit, minmax(40px, 1fr));
+  gap: 0.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.employeeCell {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.employeeInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.attendanceCell {
+  padding: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.attendanceButtons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.attendanceBtn {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attendanceBtn.present {
+  background: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.attendanceBtn.absent {
+  background: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
+.attendanceStatus {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.attendanceStatus.present {
+  background: #28a745;
+  color: white;
+}
+
+.attendanceStatus.absent {
+  background: #dc3545;
+  color: white;
+}
+
+.attendanceSummary {
+  background: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.attendanceSummary h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem 0;
+  font-weight: 600;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.summaryCard {
+  background: var(--bg-app);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #ff6b6b;
+}
+
+.summaryCard h4 {
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.summaryStats {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat span:first-child {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ff6b6b;
+}
+
+.stat span:last-child {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.salarySection {
+  background: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.salaryControls {
+  margin-bottom: 2rem;
+}
+
+.salaryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.salaryCard {
+  background: var(--bg-app);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border-left: 4px solid #28a745;
+  transition: transform 0.3s ease;
+}
+
+.salaryCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.salaryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.salaryHeader h3 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin: 0;
+  font-weight: 600;
+}
+
+.salaryHeader .role {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+}
+
+.salaryDetails {
+  margin-bottom: 1.5rem;
+}
+
+.salaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+}
+
+.salaryRow span:first-child {
+  color: var(--text-secondary);
+}
+
+.salaryRow span:last-child {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.earnedAmount {
+  font-weight: 700 !important;
+  color: #28a745 !important;
+  font-size: 1rem !important;
+}
+
+.bonusInput {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  width: 100px;
+  transition: border-color 0.3s ease;
+}
+
+.bonusInput:focus {
+  outline: none;
+  border-color: #ff6b6b;
+}
+
+.bonusAmount {
+  font-weight: 600 !important;
+  color: #ff6b6b !important;
+}
+
+.paymentStatus {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.paymentStatus.paid {
+  background: #d4edda;
+  color: #155724;
+}
+
+.paymentStatus.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.salaryActions {
+  text-align: center;
+}
+
+.payBtn {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.payBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+.paidInfo {
+  text-align: center;
+  color: #28a745;
+  font-size: 0.875rem;
+}
+
+.paidInfo p {
+  margin: 0.25rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .staffManagement {
+    padding: 1rem;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .stats {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .statCard {
+    min-width: 80px;
+    padding: 0.75rem 1rem;
+  }
+  
+  .statNumber {
+    font-size: 1.5rem;
+  }
+  
+  .tabs {
+    flex-direction: column;
+  }
+  
+  .formRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .staffGrid,
+  .summaryGrid,
+  .salaryGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .staffHeader {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .staffActions {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  
+  .attendanceGrid {
+    font-size: 0.75rem;
+  }
+  
+  .attendanceHeader,
+  .attendanceRow {
+    grid-template-columns: 150px repeat(auto-fit, minmax(30px, 1fr));
+  }
+}

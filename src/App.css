@@ -1,0 +1,241 @@
+/* Theme Variables Design System */
+:root {
+  --bg-app: #f1f5f9;
+  --bg-content: #f8fafc;
+  --bg-card: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border-color: #e2e8f0;
+  --input-bg: #ffffff;
+  --input-border: #cbd5e1;
+  --table-header-bg: #f1f5f9;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+  --sidebar-width: 260px;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --sidebar-width: 60px;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg-app: #0b0f19;
+  --bg-content: #0f172a;
+  --bg-card: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-color: #334155;
+  --input-bg: #1e293b;
+  --input-border: #475569;
+  --table-header-bg: #0f172a;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-app);
+}
+
+.app {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: calc(100% - var(--sidebar-width));
+  position: relative;
+  z-index: 1;
+  background-color: var(--bg-content);
+  transition: background-color var(--transition-speed) ease, margin-left var(--transition-speed) ease, width var(--transition-speed) ease;
+}
+
+/* ==========================================
+   GLOBAL DARK THEME OVERRIDES AND TRANSITIONS
+   ========================================== */
+
+/* Enable transitions for theme skinning */
+[data-theme="dark"] *,
+[data-theme="dark"] ::before,
+[data-theme="dark"] ::after {
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+/* Global class-level adaptation using wildcard selectors for CSS modules */
+
+[data-theme="dark"] [class*="card"],
+[data-theme="dark"] [class*="Card"],
+[data-theme="dark"] [class*="section"],
+[data-theme="dark"] [class*="Section"],
+[data-theme="dark"] [class*="container"],
+[data-theme="dark"] [class*="Container"],
+[data-theme="dark"] [class*="chartContainer"],
+[data-theme="dark"] [class*="tableContainer"],
+[data-theme="dark"] [class*="box"],
+[data-theme="dark"] [class*="profile"],
+[data-theme="dark"] [class*="appointments"],
+[data-theme="dark"] [class*="alertGrid"],
+[data-theme="dark"] [class*="quickActions"],
+[data-theme="dark"] [class*="popularItems"],
+[data-theme="dark"] [class*="staffStatus"],
+[data-theme="dark"] [class*="tableSection"],
+[data-theme="dark"] [class*="tasksSection"],
+[data-theme="dark"] [class*="summarySection"],
+[data-theme="dark"] [class*="storeStatus"],
+[data-theme="dark"] [class*="activity"],
+[data-theme="dark"] [class*="activities"],
+[data-theme="dark"] [class*="itemCard"],
+[data-theme="dark"] [class*="statusCard"],
+[data-theme="dark"] [class*="alertCard"],
+[data-theme="dark"] [class*="staffCard"],
+[data-theme="dark"] [class*="statCard"],
+[data-theme="dark"] [class*="kpiCard"],
+[data-theme="dark"] [class*="settings"] [class*="section"] {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+/* Page wrapper background overrides inside nav-content */
+[data-theme="dark"] [class*="nav-content"] > div:not([class*="login"]):not([class*="signup"]) {
+  background-color: var(--bg-app) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] [class*="dashboard"],
+[data-theme="dark"] [class*="Dashboard"],
+[data-theme="dark"] [class*="content"],
+[data-theme="dark"] [class*="home"] [class*="features"],
+[data-theme="dark"] [class*="nav-content"] {
+  background-color: var(--bg-content) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Title and headers */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] [class*="title"],
+[data-theme="dark"] [class*="Title"],
+[data-theme="dark"] [class*="name"],
+[data-theme="dark"] [class*="Name"],
+[data-theme="dark"] [class*="value"],
+[data-theme="dark"] [class*="Value"],
+[data-theme="dark"] [class*="metricValue"] {
+  color: var(--text-primary) !important;
+}
+
+/* Paragraphs, labels, subtitles (excluding badges, statuses, and values) */
+[data-theme="dark"] p,
+[data-theme="dark"] span:not([class*="status"]):not([class*="badge"]):not([class*="Icon"]):not([class*="btn"]):not([class*="positive"]):not([class*="negative"]):not([class*="change"]):not([class*="success"]):not([class*="danger"]):not([class*="warning"]):not([class*="info"]):not([class*="alert"]):not([class*="active"]):not([class*="amount"]):not([class*="tag"]):not([class*="timer"]):not([class*="pulseDot"]):not([class*="text-"]):not([class*="logo"]),
+[data-theme="dark"] label,
+[data-theme="dark"] [class*="subtitle"],
+[data-theme="dark"] [class*="description"],
+[data-theme="dark"] [class*="text"]:not([class*="errorText"]):not([class*="successText"]):not([class*="warningText"]):not([class*="infoText"]),
+[data-theme="dark"] [class*="label"],
+[data-theme="dark"] [class*="Label"] {
+  color: var(--text-secondary) !important;
+}
+
+/* Inputs and Forms */
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background-color: var(--input-bg) !important;
+  border-color: var(--input-border) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] select::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.7;
+}
+
+/* Form Groups background adjustments */
+[data-theme="dark"] [class*="formGroup"] label {
+  color: var(--text-primary) !important;
+}
+
+/* Tables */
+[data-theme="dark"] table {
+  background-color: var(--bg-card) !important;
+}
+
+[data-theme="dark"] th {
+  background-color: var(--table-header-bg) !important;
+  color: var(--text-primary) !important;
+  border-bottom-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] td {
+  border-bottom-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] tr:hover {
+  background-color: var(--table-header-bg) !important;
+}
+
+/* Modern Micro-animations & Aesthetics overrides */
+[data-theme="dark"] [class*="kpiIcon"] {
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+[data-theme="dark"] [class*="stockItem"] {
+  background-color: var(--bg-app) !important;
+}
+
+[data-theme="dark"] [class*="progressBar"] {
+  background-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] [class*="featureCard"] {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+}

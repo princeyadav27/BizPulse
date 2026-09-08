@@ -1,0 +1,470 @@
+.dashboard {
+  padding: 2rem;
+  background-color: var(--bg-content);
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin: 0;
+  font-weight: 400;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* KPI Cards Section */
+.kpiSection {
+  margin-bottom: 2rem;
+}
+
+.kpiCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.kpiCard {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kpiCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.kpiIcon {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kpiContent {
+  flex: 1;
+}
+
+.kpiTitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.kpiValue {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.kpiChange {
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.kpiChange.positive {
+  color: #28a745;
+  background-color: #d4edda;
+}
+
+.kpiChange.negative {
+  color: #dc3545;
+  background-color: #f8d7da;
+}
+
+/* Charts Section */
+.chartsSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.chartContainer {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chartTitle {
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.chartPlaceholder {
+  height: 300px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Table Section */
+.tableSection {
+  margin-bottom: 2rem;
+}
+
+.tableContainer {
+  background: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.customerTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.customerTable th {
+  background: var(--bg-app);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.customerTable td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.customerTable tr:hover {
+  background-color: var(--bg-content);
+}
+
+.status {
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status.active {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status.inactive {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Multi-Business Styles */
+.businessGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.businessCard {
+  background: var(--bg-app);
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.businessHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.businessName {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.businessStatus {
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.businessStatus.active {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.businessMetrics {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.metric {
+  text-align: center;
+}
+
+.metricLabel {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.metricValue {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Business Badges */
+.businessBadge {
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.businessBadge.petrolpump {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.businessBadge.restaurant {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.businessBadge.retailstore {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.businessBadge.servicecenter {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Alert Styles */
+.alertGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.alertCard {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #dc3545;
+}
+
+.alertHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.alertItem {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin: 0;
+  font-weight: 600;
+}
+
+.alertStatus {
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.alertStatus.good {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alertStatus.warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.alertStatus.critical {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.alertDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.alertMetric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alertLabel {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.alertValue {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* Fuel Specific Styles */
+.stockLevels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.stockItem {
+  background: var(--bg-app);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.stockHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.fuelType {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.stockValue {
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #28a745, #20c997);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.stockDetails {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.fuelBadge {
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.fuelBadge.petrol {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.fuelBadge.diesel {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.fuelBadge.cng {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.amount {
+  font-weight: 600;
+  color: #28a745;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .chartsSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 1rem;
+  }
+  
+  .kpiCards {
+    grid-template-columns: 1fr;
+  }
+  
+  .customerTable {
+    font-size: 0.875rem;
+  }
+  
+  .customerTable th,
+  .customerTable td {
+    padding: 0.75rem 0.5rem;
+  }
+}
