@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Styles from '../styles/CustomerManagement.module.css'
+import { PiTrash } from 'react-icons/pi'
 
 const CustomerManagement = () => {
     const [customers, setCustomers] = useState([]);
@@ -105,7 +106,7 @@ const CustomerManagement = () => {
         <div className={Styles.customerManagement}>
             <div className={Styles.container}>
                 <div className={Styles.header}>
-                    <h1>👥 Customer Management</h1>
+                    <h1>Customer Management</h1>
                     <div className={Styles.stats}>
                         <div className={Styles.statCard}>
                             <span className={Styles.statNumber}>{customers.length}</span>
@@ -125,19 +126,19 @@ const CustomerManagement = () => {
                         className={`${Styles.tab} ${activeTab === 'list' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('list')}
                     >
-                        📋 Customer List
+                        Customer List
                     </button>
                     <button 
                         className={`${Styles.tab} ${activeTab === 'add' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('add')}
                     >
-                        ➕ Add Customer
+                        Add Customer
                     </button>
                     <button 
                         className={`${Styles.tab} ${activeTab === 'top' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('top')}
                     >
-                        ⭐ Top Customers
+                        Top Customers
                     </button>
                 </div>
 
@@ -174,7 +175,7 @@ const CustomerManagement = () => {
                                 rows="3"
                             />
                             <button className={Styles.addBtn} onClick={addCustomer}>
-                                ➕ Add Customer
+                                Add Customer
                             </button>
                         </div>
                     </div>
@@ -185,7 +186,7 @@ const CustomerManagement = () => {
                         <div className={Styles.searchBar}>
                             <input
                                 type="text"
-                                placeholder="🔍 Search by name or phone..."
+                                placeholder="Search by name or phone..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 className={Styles.searchInput}
@@ -201,24 +202,22 @@ const CustomerManagement = () => {
                                             </div>
                                             <div>
                                                 <h3>{customer.name}</h3>
-                                                <p>📞 {customer.phone}</p>
+                                                <p>{customer.phone}</p>
                                             </div>
                                         </div>
                                         <button 
                                             className={Styles.deleteBtn}
                                             onClick={() => deleteCustomer(customer.id)}
-                                        >
-                                            🗑️
-                                        </button>
+                                        ><PiTrash aria-hidden="true" /></button>
                                     </div>
                                     <div className={Styles.customerDetails}>
-                                        {customer.email && <p>📧 {customer.email}</p>}
-                                        {customer.address && <p>📍 {customer.address}</p>}
-                                        <p>🎁 Loyalty Points: <strong>{customer.loyaltyPoints}</strong></p>
-                                        <p>🛒 Total Orders: <strong>{customer.totalOrders}</strong></p>
-                                        <p>💰 Total Spent: <strong>₹{customer.totalSpent.toLocaleString('en-IN')}</strong></p>
-                                        <p>📅 Joined: {new Date(customer.joinDate).toLocaleDateString()}</p>
-                                        <p>🕒 Last Visit: {new Date(customer.lastVisit).toLocaleDateString()}</p>
+                                        {customer.email && <p>{customer.email}</p>}
+                                        {customer.address && <p>{customer.address}</p>}
+                                        <p>Loyalty Points: <strong>{customer.loyaltyPoints}</strong></p>
+                                        <p>Total Orders: <strong>{customer.totalOrders}</strong></p>
+                                        <p>Total Spent: <strong>₹{customer.totalSpent.toLocaleString('en-IN')}</strong></p>
+                                        <p>Joined: {new Date(customer.joinDate).toLocaleDateString()}</p>
+                                        <p>Last Visit: {new Date(customer.lastVisit).toLocaleDateString()}</p>
                                     </div>
                                     <div className={Styles.actions}>
                                         <button 
@@ -228,7 +227,7 @@ const CustomerManagement = () => {
                                                 if (points) addLoyaltyPoints(customer.id, points);
                                             }}
                                         >
-                                            🎁 Add Points
+                                            Add Points
                                         </button>
                                     </div>
                                 </div>
@@ -244,14 +243,14 @@ const CustomerManagement = () => {
 
                 {activeTab === 'top' && (
                     <div className={Styles.topSection}>
-                        <h2>⭐ Top 5 Customers by Revenue</h2>
+                        <h2>Top 5 Customers by Revenue</h2>
                         <div className={Styles.topList}>
                             {topCustomers.map((customer, index) => (
                                 <div key={customer.id} className={Styles.topCard}>
                                     <div className={Styles.rank}>#{index + 1}</div>
                                     <div className={Styles.topInfo}>
                                         <h3>{customer.name}</h3>
-                                        <p>📞 {customer.phone}</p>
+                                        <p>{customer.phone}</p>
                                     </div>
                                     <div className={Styles.topStats}>
                                         <div>

@@ -26,7 +26,7 @@
 }
 
 .businessBadge {
-  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent) 100%);
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
@@ -62,14 +62,16 @@
 }
 
 .kpiIcon {
-  font-size: 3rem;
-  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
-  width: 80px;
-  height: 80px;
-  border-radius: 12px;
+  font-size: 1.75rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .kpiContent h3 {
@@ -89,8 +91,8 @@
 .kpiChange {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #28a745;
-  background-color: #d4edda;
+  color: var(--success);
+  background-color: var(--success-soft);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
 }
@@ -133,11 +135,11 @@
 }
 
 .appointmentCard.confirmed {
-  border-left: 4px solid #28a745;
+  border-left: 4px solid var(--success);
 }
 
 .appointmentCard.pending {
-  border-left: 4px solid #ffc107;
+  border-left: 4px solid var(--warning);
 }
 
 .appointmentTime {
@@ -157,13 +159,13 @@
   font-size: 0.75rem;
   font-weight: 600;
   color: white;
-  background: #28a745;
+  background: var(--success);
   padding: 0.125rem 0.5rem;
   border-radius: 4px;
 }
 
 .appointmentCard.pending .status {
-  background: #ffc107;
+  background: var(--warning);
 }
 
 .appointmentDetails h4 {
@@ -186,7 +188,7 @@
 }
 
 .actionBtnSmall {
-  background: #007bff;
+  background: var(--accent);
   color: white;
   border: none;
   padding: 0.375rem 0.75rem;
@@ -197,7 +199,7 @@
 }
 
 .actionBtnSmall:hover {
-  background: #0056b3;
+  background: var(--accent-hover);
 }
 
 .technicianStatus {
@@ -238,18 +240,18 @@
 }
 
 .techCard.busy {
-  border-left: 4px solid #ffc107;
-  background: #fff3cd;
+  border-left: 4px solid var(--warning);
+  background: var(--warning-soft);
 }
 
 .techCard.available {
-  border-left: 4px solid #28a745;
-  background: #d4edda;
+  border-left: 4px solid var(--success);
+  background: var(--success-soft);
 }
 
 .techCard.break {
-  border-left: 4px solid #17a2b8;
-  background: #d1ecf1;
+  border-left: 4px solid var(--info);
+  background: var(--info-soft);
 }
 
 .techInfo h4 {
@@ -275,7 +277,7 @@
 .timeLeft {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #ffc107;
+  color: var(--warning);
   display: block;
   margin-bottom: 0.25rem;
 }
@@ -283,7 +285,7 @@
 .nextAvailable {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #17a2b8;
+  color: var(--info);
   display: block;
   margin-bottom: 0.25rem;
 }
@@ -332,13 +334,13 @@
 }
 
 .partCard.low {
-  border-left: 4px solid #ffc107;
-  background: #fff3cd;
+  border-left: 4px solid var(--warning);
+  background: var(--warning-soft);
 }
 
 .partCard.critical {
-  border-left: 4px solid #dc3545;
-  background: #f8d7da;
+  border-left: 4px solid var(--danger);
+  background: var(--danger-soft);
 }
 
 .partInfo h4 {
@@ -370,19 +372,19 @@
 }
 
 .statusBadge.good {
-  background: #28a745;
+  background: var(--success);
 }
 
 .statusBadge.low {
-  background: #ffc107;
+  background: var(--warning);
 }
 
 .statusBadge.critical {
-  background: #dc3545;
+  background: var(--danger);
 }
 
 .orderBtn {
-  background: #dc3545;
+  background: var(--danger);
   color: white;
   border: none;
   padding: 0.375rem 0.75rem;
@@ -393,7 +395,7 @@
 }
 
 .orderBtn:hover {
-  background: #c82333;
+  background: var(--danger);
 }
 
 .quickActions {
@@ -433,8 +435,8 @@
 }
 
 .actionBtn:hover {
-  border-color: #FF6B35;
-  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+  border-color: var(--accent);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent) 100%);
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);

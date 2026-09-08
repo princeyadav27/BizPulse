@@ -121,7 +121,7 @@ const FuelSales = () => {
                 tableRows.push({
                     date: item.date,
                     fuelType: 'Petrol',
-                    fuelIcon: '⛽',
+                    fuelIcon: '',
                     liters: parseFloat(item.petrolLiters) || 0,
                     amount: parseFloat(item.petrolSales) || 0,
                     pricePerLiter: parseFloat(item.petrolLiters) > 0 ? 
@@ -134,7 +134,7 @@ const FuelSales = () => {
                 tableRows.push({
                     date: item.date,
                     fuelType: 'Diesel',
-                    fuelIcon: '🛢️',
+                    fuelIcon: '',
                     liters: parseFloat(item.dieselLiters) || 0,
                     amount: parseFloat(item.dieselSales) || 0,
                     pricePerLiter: parseFloat(item.dieselLiters) > 0 ? 
@@ -147,7 +147,7 @@ const FuelSales = () => {
                 tableRows.push({
                     date: item.date,
                     fuelType: 'CNG',
-                    fuelIcon: '⛽',
+                    fuelIcon: '',
                     liters: parseFloat(item.cngLiters) || 0,
                     amount: parseFloat(item.cngSales) || 0,
                     pricePerLiter: parseFloat(item.cngLiters) > 0 ? 
@@ -160,7 +160,7 @@ const FuelSales = () => {
                 tableRows.push({
                     date: item.date,
                     fuelType: 'Other',
-                    fuelIcon: '📦',
+                    fuelIcon: '',
                     liters: 0,
                     amount: parseFloat(item.otherSales) || 0,
                     pricePerLiter: 0
@@ -205,8 +205,8 @@ const FuelSales = () => {
                     {displayData.map((stats, index) => (
                         <div key={index} className={Styles.summaryCard}>
                             <div className={Styles.cardIcon}>
-                                {stats.fuelType === 'Petrol' ? '⛽' : 
-                                 stats.fuelType === 'Diesel' ? '🛢️' : '⛽'}
+                                {stats.fuelType === 'Petrol' ? '' : 
+                                 stats.fuelType === 'Diesel' ? '' : ''}
                             </div>
                             <div className={Styles.cardContent}>
                                 <h3>{stats.fuelType} Sales</h3>

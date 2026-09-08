@@ -43,7 +43,7 @@
   display: block;
   font-size: 2rem;
   font-weight: 700;
-  color: #ff6b6b;
+  color: var(--accent);
 }
 
 .statLabel {
@@ -80,7 +80,7 @@
 }
 
 .tab.active {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
   color: white;
 }
 
@@ -109,7 +109,7 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, var(--bg-sunken) 0%, var(--bg-sunken) 100%);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -151,7 +151,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 0;
-  border-bottom: 1px solid #f8f9fa;
+  border-bottom: 1px solid var(--bg-sunken);
 }
 
 .item:last-child {
@@ -175,7 +175,7 @@
   align-items: center;
   padding: 1.5rem;
   background: var(--bg-app);
-  border-top: 1px solid #e9ecef;
+  border-top: 1px solid var(--bg-sunken);
 }
 
 .total {
@@ -189,7 +189,7 @@
 }
 
 .actionBtn {
-  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -229,7 +229,7 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease;
-  border-left: 4px solid #e9ecef;
+  border-left: 4px solid var(--bg-sunken);
 }
 
 .tableCard:hover {
@@ -238,15 +238,15 @@
 }
 
 .tableCard.available {
-  border-left-color: #28a745;
+  border-left-color: var(--success);
 }
 
 .tableCard.occupied {
-  border-left-color: #ffc107;
+  border-left-color: var(--warning);
 }
 
 .tableCard.reserved {
-  border-left-color: #17a2b8;
+  border-left-color: var(--info);
 }
 
 .tableHeader h4 {
@@ -270,29 +270,29 @@
 }
 
 .tableCard.available .tableStatus {
-  color: #28a745;
-  background: #d4edda;
+  color: var(--success);
+  background: var(--success-soft);
 }
 
 .tableCard.occupied .tableStatus {
-  color: #ffc107;
-  background: #fff3cd;
+  color: var(--warning);
+  background: var(--warning-soft);
 }
 
 .tableCard.reserved .tableStatus {
-  color: #17a2b8;
-  background: #d1ecf1;
+  color: var(--info);
+  background: var(--info-soft);
 }
 
 .currentOrder {
   font-size: 0.875rem;
-  color: #ff6b6b;
+  color: var(--accent);
   font-weight: 600;
   margin: 0.5rem 0 0 0;
 }
 
 .newOrderBtn {
-  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -346,7 +346,7 @@
 
 .input:focus {
   outline: none;
-  border-color: #ff6b6b;
+  border-color: var(--accent);
 }
 
 .menuGrid {
@@ -368,7 +368,7 @@
 }
 
 .menuItem:hover {
-  background: #e9ecef;
+  background: var(--bg-sunken);
   transform: scale(1.02);
 }
 
@@ -398,7 +398,7 @@
   width: 30px;
   height: 30px;
   border: none;
-  background: #ff6b6b;
+  background: var(--accent);
   color: white;
   border-radius: 4px;
   cursor: pointer;
@@ -406,13 +406,13 @@
 }
 
 .qtyControl button:hover {
-  background: #ee5a24;
+  background: var(--accent-hover);
 }
 
 .totalSection {
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 2px solid #e9ecef;
+  border-top: 2px solid var(--bg-sunken);
 }
 
 .totalSection h3 {
@@ -423,7 +423,7 @@
 
 .createBtn {
   width: 100%;
-  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%);
   color: white;
   border: none;
   padding: 1rem;
@@ -456,7 +456,7 @@
   padding: 0.75rem 1rem;
   cursor: pointer;
   transition: background 0.2s ease;
-  border-bottom: 1px solid #f8f9fa;
+  border-bottom: 1px solid var(--bg-sunken);
 }
 
 .customerOption:hover {
@@ -556,12 +556,12 @@
 }
 
 .categoryBtn:hover {
-  border-color: #ff6b6b;
-  color: #ff6b6b;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .categoryBtn.activeCategory {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
   color: white;
-  border-color: #ff6b6b;
+  border-color: var(--accent);
 }

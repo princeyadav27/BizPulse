@@ -248,11 +248,11 @@ const RestaurantStaffManagement = () => {
 
     const getRoleIcon = (role) => {
         switch(role) {
-            case 'chef': return '👨‍🍳';
-            case 'waiter': return '👨‍🍼';
-            case 'manager': return '👔';
-            case 'cleaner': return '🧹';
-            default: return '👤';
+            case 'chef': return 'CF';
+            case 'waiter': return 'WT';
+            case 'manager': return 'MG';
+            case 'cleaner': return 'CL';
+            default: return 'ST';
         }
     };
 
@@ -284,7 +284,7 @@ const RestaurantStaffManagement = () => {
         <div className={Styles.staffManagement}>
             <div className={Styles.container}>
                 <div className={Styles.header}>
-                    <h1>👨‍🍳 Staff Management</h1>
+                    <h1>Staff Management</h1>
                     <div className={Styles.stats}>
                         <div className={Styles.statCard}>
                             <span className={Styles.statNumber}>{staff.length}</span>
@@ -311,19 +311,19 @@ const RestaurantStaffManagement = () => {
                         className={`${Styles.tab} ${activeTab === 'staff' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('staff')}
                     >
-                        👥 Staff List
+                        Staff List
                     </button>
                     <button 
                         className={`${Styles.tab} ${activeTab === 'attendance' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('attendance')}
                     >
-                        📅 Attendance
+                        Attendance
                     </button>
                     <button 
                         className={`${Styles.tab} ${activeTab === 'salary' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('salary')}
                     >
-                        💰 Salary Records
+                        Salary Records
                     </button>
                 </div>
 
@@ -331,7 +331,7 @@ const RestaurantStaffManagement = () => {
                 {activeTab === 'staff' && (
                     <div className={Styles.staffSection}>
                         <div className={Styles.formSection}>
-                            <h2>➕ Add Staff Member</h2>
+                            <h2>Add Staff Member</h2>
                             <div className={Styles.staffForm}>
                                 <div className={Styles.formRow}>
                                     <input
@@ -383,7 +383,7 @@ const RestaurantStaffManagement = () => {
                                     />
                                 </div>
                                 <button className={Styles.addBtn} onClick={addStaff}>
-                                    ➕ Add Staff
+                                    Add Staff
                                 </button>
                             </div>
                         </div>
@@ -406,21 +406,21 @@ const RestaurantStaffManagement = () => {
                                                 className={Styles.statusBtn}
                                                 onClick={() => updateStaffStatus(employee.id, employee.status === 'active' ? 'inactive' : 'active')}
                                             >
-                                                {employee.status === 'active' ? '🟢 Active' : '🔴 Inactive'}
+                                                {employee.status === 'active' ? 'Active' : 'Inactive'}
                                             </button>
                                             <button 
                                                 className={Styles.deleteBtn}
                                                 onClick={() => deleteStaff(employee.id)}
                                             >
-                                                🗑️
+                                                
                                             </button>
                                         </div>
                                     </div>
                                     <div className={Styles.staffDetails}>
-                                        <p>📞 {employee.phone}</p>
-                                        <p>📧 {employee.email}</p>
-                                        <p>💰 {formatCurrency(employee.salary)}/month</p>
-                                        <p>📅 Joined: {new Date(employee.joinDate).toLocaleDateString()}</p>
+                                        <p>{employee.phone}</p>
+                                        <p>{employee.email}</p>
+                                        <p>{formatCurrency(employee.salary)}/month</p>
+                                        <p>Joined: {new Date(employee.joinDate).toLocaleDateString()}</p>
                                     </div>
                                 </div>
                             ))}
@@ -475,19 +475,19 @@ const RestaurantStaffManagement = () => {
                                                             className={`${Styles.attendanceBtn} ${record?.status === 'present' ? Styles.present : ''}`}
                                                             onClick={() => markAttendance(employee.id, date, 'present')}
                                                         >
-                                                            ✓
+                                                            
                                                         </button>
                                                         <button
                                                             className={`${Styles.attendanceBtn} ${record?.status === 'absent' ? Styles.absent : ''}`}
                                                             onClick={() => markAttendance(employee.id, date, 'absent')}
                                                         >
-                                                            ✗
+                                                            
                                                         </button>
                                                     </div>
                                                 ) : (
                                                     <div className={`${Styles.attendanceStatus} ${record?.status || ''}`}>
-                                                        {record?.status === 'present' && '✓'}
-                                                        {record?.status === 'absent' && '✗'}
+                                                        {record?.status === 'present' && ''}
+                                                        {record?.status === 'absent' && ''}
                                                         {!record && '-'}
                                                     </div>
                                                 )}
@@ -500,7 +500,7 @@ const RestaurantStaffManagement = () => {
 
                         {/* Attendance Summary */}
                         <div className={Styles.attendanceSummary}>
-                            <h3>📊 Attendance Summary</h3>
+                            <h3>Attendance Summary</h3>
                             <div className={Styles.summaryGrid}>
                                 {staff.map(employee => {
                                     const staffAttendance = getStaffAttendance(employee.id, selectedMonth);
@@ -595,7 +595,7 @@ const RestaurantStaffManagement = () => {
                                             <div className={Styles.salaryRow}>
                                                 <span>Status:</span>
                                                 <span className={`${Styles.paymentStatus} ${salaryRecord?.paid ? 'paid' : 'pending'}`}>
-                                                    {salaryRecord?.paid ? '✅ Paid' : '⏳ Pending'}
+                                                    {salaryRecord?.paid ? 'Paid' : 'Pending'}
                                                 </span>
                                             </div>
                                         </div>
@@ -605,7 +605,7 @@ const RestaurantStaffManagement = () => {
                                                     className={Styles.payBtn}
                                                     onClick={() => processSalary(employee.id, selectedMonth)}
                                                 >
-                                                    💳 Process Salary
+                                                    Process Salary
                                                 </button>
                                             )}
                                             {salaryRecord?.paid && (

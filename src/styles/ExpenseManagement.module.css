@@ -15,7 +15,7 @@
 
 .addBtn {
     padding: 10px 20px;
-    background: #007bff;
+    background: var(--accent);
     color: white;
     border: none;
     border-radius: 5px;
@@ -24,7 +24,7 @@
 }
 
 .addBtn:hover {
-    background: #0056b3;
+    background: var(--accent-hover);
 }
 
 .summary {
@@ -52,7 +52,7 @@
     margin: 0;
     font-size: 24px;
     font-weight: bold;
-    color: #dc3545;
+    color: var(--danger);
 }
 
 .addForm {
@@ -84,7 +84,7 @@
 .submitBtn {
     grid-column: span 2;
     padding: 10px;
-    background: #28a745;
+    background: var(--success);
     color: white;
     border: none;
     border-radius: 4px;
@@ -93,7 +93,7 @@
 }
 
 .submitBtn:hover {
-    background: #218838;
+    background: var(--success);
 }
 
 .expenseList {
@@ -126,7 +126,7 @@
 
 .deleteBtn {
     padding: 6px 12px;
-    background: #dc3545;
+    background: var(--danger);
     color: white;
     border: none;
     border-radius: 4px;
@@ -135,5 +135,5 @@
 }
 
 .deleteBtn:hover {
-    background: #c82333;
+    background: var(--danger);
 }

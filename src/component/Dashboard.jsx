@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Styles from '../styles/Dashboard.module.css'
+import { PiChartLine, PiClipboardText, PiGasPump, PiPackage } from 'react-icons/pi'
 
 const Dashboard = () => {
   const [recentTransactions, setRecentTransactions] = useState([]);
@@ -148,10 +149,10 @@ const Dashboard = () => {
   const totalTransactions = salesData.length;
 
   const businessKpiData = [
-    { title: 'Today Sales', value: `₹${todaySales.toFixed(0)}`, change: '+12%', icon: '⛽', business: 'petrol' },
-    { title: 'Month Sales', value: `₹${monthSales.toFixed(0)}`, change: '+8%', icon: '📊', business: 'restaurant' },
-    { title: 'Total Transactions', value: totalTransactions, change: '+15%', icon: '📋', business: 'retail' },
-    { title: 'Stock Value', value: `₹${stockData.reduce((sum, s) => sum + (s.currentStock * s.pricePerLiter), 0).toFixed(0)}`, change: '+5%', icon: '📦', business: 'service' }
+    { title: 'Today Sales', value: `₹${todaySales.toFixed(0)}`, change: '+12%', Icon: PiGasPump, business: 'petrol' },
+    { title: 'Month Sales', value: `₹${monthSales.toFixed(0)}`, change: '+8%', Icon: PiChartLine, business: 'restaurant' },
+    { title: 'Total Transactions', value: totalTransactions, change: '+15%', Icon: PiClipboardText, business: 'retail' },
+    { title: 'Stock Value', value: `₹${stockData.reduce((sum, s) => sum + (s.currentStock * s.pricePerLiter), 0).toFixed(0)}`, change: '+5%', Icon: PiPackage, business: 'service' }
   ];
 
   const fuelTypes = stockData.map(fuel => ({
@@ -195,7 +196,7 @@ const Dashboard = () => {
         <div className={Styles.kpiCards}>
           {businessKpiData.map((kpi, index) => (
             <div key={index} className={Styles.kpiCard}>
-              <div className={Styles.kpiIcon}>{kpi.icon}</div>
+              <div className={Styles.kpiIcon}><kpi.Icon aria-hidden="true" /></div>
               <div className={Styles.kpiContent}>
                 <h3 className={Styles.kpiTitle}>{kpi.title}</h3>
                 <p className={Styles.kpiValue}>{kpi.value}</p>

@@ -1,172 +1,146 @@
-import { Link, useLocation } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Styles from '../styles/SideBar.module.css'
-import {
-    FaHome,
-    FaGasPump,
-    FaBoxes,
-    FaFileAlt,
-    FaChartLine,
-    FaUsers,
-    FaUpload,
-    FaUtensils,
-    FaCreditCard,
-    FaClipboardList,
-    FaCashRegister,
-    FaBoxOpen,
-    FaWrench,
-    FaCalendarAlt,
-    FaCog
-} from 'react-icons/fa'
+import { getStoredUser, subscribeAuth } from '../utils/authEvents'
+import { PiBuildings, PiCashRegister, PiChartLine, PiClipboardText, PiClockCounterClockwise, PiCreditCard, PiFileText, PiForkKnife, PiGasPump, PiGauge, PiGearSix, PiPackage, PiStorefront, PiUploadSimple, PiUsersThree, PiWrench } from 'react-icons/pi'
+
+const BUSINESS_META = {
+    'petrol-pump': { label: 'Petrol Pump', short: 'PP', Icon: PiGasPump },
+    'restaurant': { label: 'Restaurant', short: 'RT', Icon: PiForkKnife },
+    'retail': { label: 'Retail Store', short: 'RL', Icon: PiStorefront },
+    'service': { label: 'Service Center', short: 'SV', Icon: PiWrench },
+    'multi-business': { label: 'Multi-Business', short: 'MB', Icon: PiBuildings }
+};
+
+const FALLBACK_META = { label: 'General', short: 'GN', Icon: PiBuildings };
+
+const MENU_BY_BUSINESS = {
+    'petrol-pump': [
+        { name: 'Dashboard', path: '/dashboard', Icon: PiGauge },
+        { name: 'Fuel Sales', path: '/fuel-sales', Icon: PiGasPump },
+        { name: 'Stock Management', path: '/stock-management', Icon: PiPackage },
+        { name: 'Staff Management', path: '/staff-management', Icon: PiUsersThree },
+        { name: 'Sales Upload', path: '/sales-upload', Icon: PiUploadSimple }
+    ],
+    'restaurant': [
+        { name: 'Dashboard', path: '/restaurant-dashboard', Icon: PiGauge },
+        { name: 'Orders', path: '/restaurant-orders', Icon: PiForkKnife },
+        { name: 'Billing', path: '/restaurant-billing', Icon: PiCreditCard },
+        { name: 'Menu Management', path: '/menu-management', Icon: PiClipboardText },
+        { name: 'Kitchen Stock', path: '/restaurant-stock', Icon: PiPackage },
+        { name: 'Staff Management', path: '/restaurant-staff', Icon: PiUsersThree }
+    ],
+    'retail': [
+        { name: 'Dashboard', path: '/retail-dashboard', Icon: PiGauge },
+        { name: 'Sales Record', path: '/sales-upload', Icon: PiCashRegister },
+        { name: 'Stock Management', path: '/stock-management', Icon: PiPackage },
+        { name: 'Staff Management', path: '/staff-management', Icon: PiUsersThree }
+    ],
+    'service': [
+        { name: 'Dashboard', path: '/service-dashboard', Icon: PiGauge },
+        { name: 'Service Billing', path: '/sales-upload', Icon: PiWrench },
+        { name: 'Service History', path: '/transactions', Icon: PiClockCounterClockwise },
+        { name: 'Staff Management', path: '/staff-management', Icon: PiUsersThree }
+    ],
+    'default': [
+        { name: 'Dashboard', path: '/dashboard', Icon: PiGauge },
+        { name: 'Settings', path: '/settings', Icon: PiGearSix }
+    ]
+};
+
+const INSIGHTS_MENU = [
+    { name: 'Reports', path: '/reports', Icon: PiFileText },
+    { name: 'Analytics', path: '/analytics', Icon: PiChartLine },
+    { name: 'Settings', path: '/settings', Icon: PiGearSix }
+];
+
+const getInitials = (name) => {
+    if (!name) return 'BP';
+    const parts = String(name).trim().split(/\s+/).filter(Boolean);
+    if (parts.length === 0) return 'BP';
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+};
 
 const DynamicSideBar = () => {
-    const location = useLocation();
-    const [userBusiness, setUserBusiness] = useState('');
-    const [menuItems, setMenuItems] = useState([]);
+    const [user, setUser] = useState(() => getStoredUser());
 
     useEffect(() => {
-        const updateSidebar = () => {
-            console.log('BizPulse - DynamicSideBar - Updating sidebar');
-
-            // Get current user data
-            const userData = localStorage.getItem('userData');
-            if (userData) {
-                const parsedData = JSON.parse(userData);
-                const currentBusinessType = parsedData.businessType;
-
-                console.log('BizPulse - DynamicSideBar - Current business type:', currentBusinessType);
-                setUserBusiness(currentBusinessType);
-
-                // Update menu based on business type
-                switch (currentBusinessType) {
-                    case 'petrol-pump':
-                        setMenuItems([
-                            { name: 'Dashboard', path: '/dashboard', icon: <FaHome /> },
-                            { name: 'Fuel Sales', path: '/fuel-sales', icon: <FaGasPump /> },
-                            { name: 'Stock Management', path: '/stock-management', icon: <FaBoxes /> },
-                            { name: 'Reports', path: '/reports', icon: <FaFileAlt /> },
-                            { name: 'Analytics', path: '/analytics', icon: <FaChartLine /> },
-                            { name: 'Staff Management', path: '/staff-management', icon: <FaUsers /> },
-                            { name: 'Sales Upload', path: '/sales-upload', icon: <FaUpload /> }
-                        ]);
-                        break;
-                    case 'restaurant':
-                        setMenuItems([
-                            { name: 'Dashboard', path: '/restaurant-dashboard', icon: <FaHome /> },
-                            { name: 'Orders', path: '/restaurant-orders', icon: <FaUtensils /> },
-                            { name: 'Billing', path: '/restaurant-billing', icon: <FaCreditCard /> },
-                            { name: 'Menu Management', path: '/menu-management', icon: <FaClipboardList /> },
-                            { name: 'Kitchen Stock', path: '/restaurant-stock', icon: <FaBoxes /> },
-                            { name: 'Staff Management', path: '/restaurant-staff', icon: <FaUsers /> },
-                            { name: 'Reports', path: '/reports', icon: <FaFileAlt /> },
-                            { name: 'Analytics', path: '/analytics', icon: <FaChartLine /> }
-                        ]);
-                        break;
-                    case 'retail':
-                        setMenuItems([
-                            { name: 'Dashboard', path: '/retail-dashboard', icon: <FaHome /> },
-                            { name: 'Sales Record', path: '/sales-upload', icon: <FaCashRegister /> },
-                            { name: 'Stock Management', path: '/stock-management', icon: <FaBoxes /> },
-                            { name: 'Staff Management', path: '/staff-management', icon: <FaUsers /> },
-                            { name: 'Reports', path: '/reports', icon: <FaFileAlt /> },
-                            { name: 'Analytics', path: '/analytics', icon: <FaChartLine /> }
-                        ]);
-                        break;
-                    case 'service':
-                        setMenuItems([
-                            { name: 'Dashboard', path: '/service-dashboard', icon: <FaHome /> },
-                            { name: 'Service Billing', path: '/sales-upload', icon: <FaWrench /> },
-                            { name: 'Service History', path: '/transactions', icon: <FaCalendarAlt /> },
-                            { name: 'Staff Management', path: '/staff-management', icon: <FaUsers /> },
-                            { name: 'Reports', path: '/reports', icon: <FaFileAlt /> },
-                            { name: 'Analytics', path: '/analytics', icon: <FaChartLine /> }
-                        ]);
-                        break;
-                    default:
-                        setMenuItems([
-                            { name: 'Dashboard', path: '/dashboard', icon: <FaHome /> },
-                            { name: 'Analytics', path: '/analytics', icon: <FaChartLine /> },
-                            { name: 'Settings', path: '/settings', icon: <FaCog /> }
-                        ]);
-                }
-            }
-        };
-
-        // Initial load
-        updateSidebar();
-
-        // Listen for storage changes
-        const handleStorageChange = () => {
-            console.log('DynamicSideBar - Storage changed, updating sidebar');
-            updateSidebar();
-        };
-
-        window.addEventListener('storage', handleStorageChange);
-
-        // Check periodically (for same-tab updates)
-        const interval = setInterval(updateSidebar, 2000);
-
-        return () => {
-            window.removeEventListener('storage', handleStorageChange);
-            clearInterval(interval);
-        };
+        const refresh = () => setUser(getStoredUser());
+        refresh();
+        return subscribeAuth(refresh);
     }, []);
 
-    const getBusinessIcon = (businessType) => {
-        const icons = {
-            'petrol-pump': '⛽',
-            'restaurant': '🍽️',
-            'retail': '🏪',
-            'service': '🔧',
-            'multi-business': '🏢'
-        };
-        return icons[businessType] || '🏢';
-    };
-
-    const getBusinessName = (businessType) => {
-        const names = {
-            'petrol-pump': 'Petrol Pump',
-            'restaurant': 'Restaurant',
-            'retail': 'Retail Store',
-            'service': 'Service Center',
-            'multi-business': 'Multi-Business'
-        };
-        return names[businessType] || 'General';
-    };
+    const businessType = user?.businessType || '';
+    const meta = BUSINESS_META[businessType] || FALLBACK_META;
+    const primaryItems = MENU_BY_BUSINESS[businessType] || MENU_BY_BUSINESS.default;
+    const showInsights = businessType !== '';
 
     return (
-        <div className={Styles.sidebar}>
-            <div className={Styles.sidebarHeader}>
-                <h3>Business Menu</h3>
-                <div className={Styles.businessType} data-business={userBusiness}>
-                    {getBusinessIcon(userBusiness)} {getBusinessName(userBusiness)}
-                </div>
+        <aside className={Styles.sidebar} aria-label="Business navigation">
+            <Link to="/" className={Styles.brand}>
+                <span className={Styles.brandMark} aria-hidden="true">
+                    <svg viewBox="0 0 64 64" width="22" height="22">
+                        <path d="M10 38 L20 38 L26 18 L33 50 L39 30 L43 38 L54 38" fill="none" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                </span>
+                <span className={Styles.brandText}>BizPulse</span>
+            </Link>
+
+            <div className={Styles.workspace} title={meta.label}>
+                <span className={Styles.workspaceBadge}>{meta.short}</span>
+                <span className={Styles.workspaceMeta}>
+                    <span className={Styles.workspaceLabel}>Workspace</span>
+                    <span className={Styles.workspaceName}>{meta.label}</span>
+                </span>
             </div>
 
             <nav className={Styles.sidebarNav}>
-                {menuItems.map((item, index) => (
-                    <Link
-                        key={index}
+                <p className={Styles.navGroup}>Operations</p>
+                {primaryItems.map((item) => (
+                    <NavLink
+                        key={item.path + item.name}
                         to={item.path}
-                        className={`${Styles.navItem} ${location.pathname === item.path ? Styles.active : ''}`}
-                        data-nav={userBusiness}
+                        title={item.name}
+                        className={({ isActive }) =>
+                            `${Styles.navItem} ${isActive ? Styles.active : ''}`
+                        }
                     >
-                        <span className={Styles.navIcon}>{item.icon}</span>
+                        <item.Icon className={Styles.navIcon} aria-hidden="true" />
                         <span className={Styles.navText}>{item.name}</span>
-                    </Link>
+                    </NavLink>
                 ))}
+
+                {showInsights && (
+                    <>
+                        <p className={Styles.navGroup}>Insights</p>
+                        {INSIGHTS_MENU.map((item) => (
+                            <NavLink
+                                key={item.path}
+                                to={item.path}
+                                title={item.name}
+                                className={({ isActive }) =>
+                                    `${Styles.navItem} ${isActive ? Styles.active : ''}`
+                                }
+                            >
+                                <item.Icon className={Styles.navIcon} aria-hidden="true" />
+                                <span className={Styles.navText}>{item.name}</span>
+                            </NavLink>
+                        ))}
+                    </>
+                )}
             </nav>
 
             <div className={Styles.sidebarFooter}>
-                <div className={Styles.userInfo}>
-                    <div className={Styles.userAvatar}>👤</div>
-                    <div className={Styles.userDetails}>
-                        <p className={Styles.userName}>Business Owner</p>
-                        <p className={Styles.userRole}>{getBusinessName(userBusiness)}</p>
-                    </div>
-                </div>
+                <span className={Styles.userAvatar} aria-hidden="true">
+                    {getInitials(user?.name || user?.businessName)}
+                </span>
+                <span className={Styles.userDetails}>
+                    <span className={Styles.userName}>{user?.name || 'Business Owner'}</span>
+                    <span className={Styles.userRole}>{user?.businessName || meta.label}</span>
+                </span>
             </div>
-        </div>
+        </aside>
     );
 };
 

@@ -43,7 +43,7 @@
   display: block;
   font-size: 2rem;
   font-weight: 700;
-  color: #ff6b6b;
+  color: var(--accent);
 }
 
 .statLabel {
@@ -62,7 +62,7 @@
 
 .alertSection h2 {
   font-size: 1.5rem;
-  color: #dc3545;
+  color: var(--danger);
   margin: 0 0 1.5rem 0;
   font-weight: 600;
 }
@@ -78,9 +78,9 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  border: 1px solid #dc3545;
+  border: 1px solid var(--danger);
   border-radius: 8px;
-  background: #f8d7da;
+  background: var(--danger-soft);
 }
 
 .alertIcon {
@@ -94,19 +94,19 @@
 
 .alertContent h4 {
   font-size: 1rem;
-  color: #721c24;
+  color: var(--danger);
   margin: 0 0 0.5rem 0;
   font-weight: 600;
 }
 
 .alertContent p {
   font-size: 0.875rem;
-  color: #721c24;
+  color: var(--danger);
   margin: 0.25rem 0;
 }
 
 .quickOrderBtn {
-  background: #dc3545;
+  background: var(--danger);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -117,7 +117,7 @@
 }
 
 .quickOrderBtn:hover {
-  background: #c82333;
+  background: var(--danger);
 }
 
 .tabs {
@@ -148,7 +148,7 @@
 }
 
 .tab.active {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
   color: white;
 }
 
@@ -194,11 +194,11 @@
 .input:focus,
 .select:focus {
   outline: none;
-  border-color: #ff6b6b;
+  border-color: var(--accent);
 }
 
 .addBtn {
-  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -239,7 +239,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, var(--bg-sunken) 0%, var(--bg-sunken) 100%);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -259,16 +259,16 @@
 }
 
 .statusBadge.good {
-  background: #28a745;
+  background: var(--success);
 }
 
 .statusBadge.low {
-  background: #ffc107;
-  color: #212529;
+  background: var(--warning);
+  color: var(--text-primary);
 }
 
 .statusBadge.out {
-  background: #dc3545;
+  background: var(--danger);
 }
 
 .stockDetails {
@@ -294,7 +294,7 @@
 
 .stockValue {
   font-weight: 700 !important;
-  color: #ff6b6b !important;
+  color: var(--accent) !important;
 }
 
 .stockActions {
@@ -303,7 +303,7 @@
   align-items: center;
   padding: 1rem 1.5rem;
   background: var(--bg-app);
-  border-top: 1px solid #e9ecef;
+  border-top: 1px solid var(--bg-sunken);
 }
 
 .stockControls {
@@ -312,7 +312,7 @@
 }
 
 .stockBtn {
-  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+  background: linear-gradient(135deg, var(--info) 0%, var(--info) 100%);
   color: white;
   border: none;
   padding: 0.375rem 0.75rem;
@@ -329,7 +329,7 @@
 }
 
 .deleteBtn {
-  background: #dc3545;
+  background: var(--danger);
   color: white;
   border: none;
   padding: 0.5rem;
@@ -340,7 +340,7 @@
 }
 
 .deleteBtn:hover {
-  background: #c82333;
+  background: var(--danger);
 }
 
 .suppliersGrid {
@@ -367,7 +367,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, var(--bg-sunken) 0%, var(--bg-sunken) 100%);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -406,7 +406,7 @@
 }
 
 .itemTag {
-  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+  background: linear-gradient(135deg, var(--info) 0%, var(--info) 100%);
   color: white;
   padding: 0.25rem 0.5rem;
   border-radius: 12px;
@@ -430,7 +430,7 @@
 
 .totalCost {
   font-weight: 700;
-  color: #28a745;
+  color: var(--success);
   font-size: 1.25rem;
 }
 

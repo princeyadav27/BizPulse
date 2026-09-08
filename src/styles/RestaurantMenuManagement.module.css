@@ -43,7 +43,7 @@
   display: block;
   font-size: 2rem;
   font-weight: 700;
-  color: #ff6b6b;
+  color: var(--accent);
 }
 
 .statLabel {
@@ -81,7 +81,7 @@
 }
 
 .tab.active {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
   color: white;
 }
 
@@ -126,7 +126,7 @@
 .input:focus,
 .select:focus {
   outline: none;
-  border-color: #ff6b6b;
+  border-color: var(--accent);
 }
 
 .checkboxLabel {
@@ -161,7 +161,7 @@
 
 .addBtn,
 .saveBtn {
-  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%);
   color: white;
 }
 
@@ -172,7 +172,7 @@
 }
 
 .cancelBtn {
-  background: #6c757d;
+  background: var(--text-secondary);
   color: white;
 }
 
@@ -200,7 +200,7 @@
 }
 
 .deleteBtn {
-  background: #dc3545;
+  background: var(--danger);
   color: white;
   border: none;
   padding: 0.5rem;
@@ -211,7 +211,7 @@
 }
 
 .deleteBtn:hover {
-  background: #c82333;
+  background: var(--danger);
 }
 
 .itemsGrid {
@@ -235,7 +235,7 @@
 
 .itemCard.unavailable {
   opacity: 0.7;
-  border: 2px solid #dc3545;
+  border: 2px solid var(--danger);
 }
 
 .itemHeader {
@@ -243,7 +243,7 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, var(--bg-sunken) 0%, var(--bg-sunken) 100%);
 }
 
 .itemHeader h3 {
@@ -259,7 +259,7 @@
 }
 
 .editBtn {
-  background: #ffc107;
+  background: var(--warning);
   color: white;
   border: none;
   padding: 0.5rem;
@@ -270,7 +270,7 @@
 }
 
 .editBtn:hover {
-  background: #e0a800;
+  background: var(--warning);
 }
 
 .itemDetails {
@@ -282,7 +282,7 @@
 }
 
 .category {
-  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+  background: linear-gradient(135deg, var(--info) 0%, var(--info) 100%);
   color: white;
   padding: 0.25rem 0.75rem;
   border-radius: 12px;
@@ -293,7 +293,7 @@
 .price {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #ff6b6b;
+  color: var(--accent);
 }
 
 .description {
@@ -320,17 +320,17 @@
 }
 
 .availability.available {
-  background: #d4edda;
-  color: #155724;
+  background: var(--success-soft);
+  color: var(--success);
 }
 
 .availability.unavailable {
-  background: #f8d7da;
-  color: #721c24;
+  background: var(--danger-soft);
+  color: var(--danger);
 }
 
 .toggleBtn {
-  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+  background: linear-gradient(135deg, var(--info) 0%, var(--info) 100%);
   color: white;
   border: none;
   padding: 0.5rem 1rem;

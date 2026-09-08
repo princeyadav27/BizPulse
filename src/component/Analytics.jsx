@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Styles from '../styles/Analytics.module.css'
+import { PiChartLine, PiCurrencyInr, PiLightbulb, PiTarget, PiTrendUp } from 'react-icons/pi'
 
 const Analytics = () => {
     const [userBusiness, setUserBusiness] = useState('');
@@ -618,13 +619,13 @@ const Analytics = () => {
 
     const getBusinessIcon = (businessType) => {
         const icons = {
-            'petrol-pump': '⛽',
-            'restaurant': '🍽️',
-            'retail': '🏪',
-            'service': '🔧',
-            'multi-business': '🏢'
+            'petrol-pump': 'Petrol Pump',
+            'restaurant': 'Restaurant',
+            'retail': 'Retail Store',
+            'service': 'Service Center',
+            'multi-business': 'Multi-Business'
         };
-        return icons[businessType] || '🏢';
+        return icons[businessType] || 'General';
     };
 
     const formatCurrency = (amount) => {
@@ -638,7 +639,7 @@ const Analytics = () => {
         return (
             <div className={Styles.analytics}>
                 <div className={Styles.errorBoundary}>
-                    <h2>⚠️ Analytics Error</h2>
+                    <h2>Analytics Error</h2>
                     <p>{error}</p>
                     <button onClick={() => window.location.reload()} className={Styles.retryBtn}>
                         Retry
@@ -652,7 +653,7 @@ const Analytics = () => {
         <div className={Styles.analytics}>
             <div className={Styles.header}>
                 <div className={Styles.headerContent}>
-                    <h1>{getBusinessIcon(userBusiness)} Business Analytics</h1>
+                    <h1>{getBusinessIcon(userBusiness)} — Business Analytics</h1>
                     <h2 className={Styles.subtitle}>{businessName}</h2>
                 </div>
                 <div className={Styles.timeRangeSelector}>
@@ -681,7 +682,7 @@ const Analytics = () => {
                 {/* KPI Cards */}
                 <div className={Styles.kpiCards}>
                     <div className={Styles.kpiCard}>
-                        <div className={Styles.kpiIcon}>💰</div>
+                        <div className={Styles.kpiIcon}><PiCurrencyInr aria-hidden="true" /></div>
                         <div className={Styles.kpiContent}>
                             <h3>Total Revenue</h3>
                             <p className={Styles.kpiValue}>{formatCurrency(analyticsData.totalRevenue || 0)}</p>
@@ -692,7 +693,7 @@ const Analytics = () => {
                     </div>
                     
                     <div className={Styles.kpiCard}>
-                        <div className={Styles.kpiIcon}>📊</div>
+                        <div className={Styles.kpiIcon}><PiChartLine aria-hidden="true" /></div>
                         <div className={Styles.kpiContent}>
                             <h3>Total Orders</h3>
                             <p className={Styles.kpiValue}>{analyticsData.totalOrders || 0}</p>
@@ -703,7 +704,7 @@ const Analytics = () => {
                     </div>
                     
                     <div className={Styles.kpiCard}>
-                        <div className={Styles.kpiIcon}>📈</div>
+                        <div className={Styles.kpiIcon}><PiTrendUp aria-hidden="true" /></div>
                         <div className={Styles.kpiContent}>
                             <h3>Avg Order Value</h3>
                             <p className={Styles.kpiValue}>{formatCurrency(analyticsData.avgOrderValue || 0)}</p>
@@ -714,7 +715,7 @@ const Analytics = () => {
                     </div>
                     
                     <div className={Styles.kpiCard}>
-                        <div className={Styles.kpiIcon}>🎯</div>
+                        <div className={Styles.kpiIcon}><PiTarget aria-hidden="true" /></div>
                         <div className={Styles.kpiContent}>
                             <h3>Growth Rate</h3>
                             <p className={Styles.kpiValue}>{analyticsData.growthRate?.toFixed(1) || 0}%</p>
@@ -799,11 +800,11 @@ const Analytics = () => {
                         {userBusiness === 'petrol-pump' && analyticsData.fuelTypes && (
                             <>
                                 <div className={Styles.insightCard}>
-                                    <h4>⛽ Top Fuel Type</h4>
+                                    <h4>Top Fuel Type</h4>
                                     <p>{analyticsData.topFuelType || 'N/A'}</p>
                                 </div>
                                 <div className={Styles.insightCard}>
-                                    <h4>📊 Fuel Performance</h4>
+                                    <h4>Fuel Performance</h4>
                                     <p>{Object.keys(analyticsData.fuelTypes || {}).join(', ')}</p>
                                 </div>
                             </>
@@ -812,11 +813,11 @@ const Analytics = () => {
                         {userBusiness === 'restaurant' && (
                             <>
                                 <div className={Styles.insightCard}>
-                                    <h4>🍽️ Peak Hours</h4>
+                                    <h4>Peak Hours</h4>
                                     <p>{analyticsData.peakHours || '12-2 PM, 7-10 PM'}</p>
                                 </div>
                                 <div className={Styles.insightCard}>
-                                    <h4>⭐ Popular Items</h4>
+                                    <h4>Popular Items</h4>
                                     <p>{analyticsData.popularItems?.join(', ') || 'N/A'}</p>
                                 </div>
                             </>
@@ -825,11 +826,11 @@ const Analytics = () => {
                         {userBusiness === 'retail' && (
                             <>
                                 <div className={Styles.insightCard}>
-                                    <h4>🛒 Avg Basket Size</h4>
+                                    <h4>Avg Basket Size</h4>
                                     <p>{analyticsData.avgBasketSize?.toFixed(1) || 0} items</p>
                                 </div>
                                 <div className={Styles.insightCard}>
-                                    <h4>🏷️ Top Categories</h4>
+                                    <h4>Top Categories</h4>
                                     <p>{analyticsData.topCategories?.join(', ') || 'N/A'}</p>
                                 </div>
                             </>
@@ -838,11 +839,11 @@ const Analytics = () => {
                         {userBusiness === 'service' && (
                             <>
                                 <div className={Styles.insightCard}>
-                                    <h4>🔧 Avg Service Time</h4>
+                                    <h4>Avg Service Time</h4>
                                     <p>{analyticsData.avgServiceTime || 45} minutes</p>
                                 </div>
                                 <div className={Styles.insightCard}>
-                                    <h4>⭐ Customer Satisfaction</h4>
+                                    <h4>Customer Satisfaction</h4>
                                     <p>{analyticsData.customerSatisfaction || 4.5}/5.0</p>
                                 </div>
                             </>
@@ -855,19 +856,19 @@ const Analytics = () => {
                     <h3>Recommendations</h3>
                     <div className={Styles.recommendationsList}>
                         <div className={Styles.recommendation}>
-                            <span className={Styles.recIcon}>💡</span>
+                            <span className={Styles.recIcon}><PiLightbulb aria-hidden="true" /></span>
                             <p>Focus on {userBusiness === 'petrol-pump' ? 'fuel efficiency programs' : 
                                    userBusiness === 'restaurant' ? 'menu optimization' :
                                    userBusiness === 'retail' ? 'inventory management' : 'service quality'}</p>
                         </div>
                         <div className={Styles.recommendation}>
-                            <span className={Styles.recIcon}>📈</span>
+                            <span className={Styles.recIcon}><PiTrendUp aria-hidden="true" /></span>
                             <p>Consider expanding {userBusiness === 'petrol-pump' ? 'fuel types' : 
                                    userBusiness === 'restaurant' ? 'delivery options' :
                                    userBusiness === 'retail' ? 'product range' : 'service hours'}</p>
                         </div>
                         <div className={Styles.recommendation}>
-                            <span className={Styles.recIcon}>🎯</span>
+                            <span className={Styles.recIcon}><PiTarget aria-hidden="true" /></span>
                             <p>Implement {userBusiness === 'petrol-pump' ? 'loyalty programs' : 
                                    userBusiness === 'restaurant' ? 'customer feedback system' :
                                    userBusiness === 'retail' ? 'seasonal promotions' : 'maintenance packages'}</p>

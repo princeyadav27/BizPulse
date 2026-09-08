@@ -55,30 +55,30 @@
 }
 
 .btnPrimary {
-    background: #007bff;
+    background: var(--accent);
     color: white;
 }
 
 .btnPrimary:hover {
-    background: #0056b3;
+    background: var(--accent-hover);
 }
 
 .btnSecondary {
-    background: #28a745;
+    background: var(--success);
     color: white;
 }
 
 .btnSecondary:hover {
-    background: #218838;
+    background: var(--success);
 }
 
 .btnDanger {
-    background: #dc3545;
+    background: var(--danger);
     color: white;
 }
 
 .btnDanger:hover {
-    background: #c82333;
+    background: var(--danger);
 }
 
 .actions {
@@ -114,12 +114,12 @@
 .themeCard:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-    border-color: #cbd5e1;
+    border-color: var(--input-border);
 }
 
 .activeThemeCard {
-    border-color: #007bff !important;
-    box-shadow: 0 0 0 1px #007bff, 0 8px 20px rgba(0, 123, 255, 0.15) !important;
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 1px var(--accent), 0 8px 20px rgba(232, 89, 12, 0.15) !important;
     background: var(--bg-card);
 }
 
@@ -152,14 +152,14 @@
 
 /* Light Preview Mockup */
 .lightPreview {
-    background-color: #f1f5f9;
+    background-color: var(--bg-sunken);
 }
 .lightPreview .previewHeader {
     background-color: #334155;
 }
 .lightPreview .previewItem {
     background-color: #ffffff;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-color);
 }
 
 /* Dark Preview Mockup */
@@ -176,14 +176,14 @@
 
 /* System Preview Mockup (Split look) */
 .systemPreview {
-    background: linear-gradient(90deg, #f1f5f9 50%, #0b0f19 50%);
+    background: linear-gradient(90deg, var(--bg-sunken) 50%, #0b0f19 50%);
 }
 .systemPreview .previewHeader {
     background: linear-gradient(90deg, #334155 50%, #1e293b 50%);
 }
 .systemPreview .previewItem:first-child {
     background-color: #ffffff;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-color);
 }
 .systemPreview .previewItem:last-child {
     background-color: #1e293b;
@@ -206,7 +206,7 @@
 }
 
 .activeThemeCard .themeMeta {
-    background: rgba(0, 123, 255, 0.04);
+    background: rgba(232, 89, 12, 0.04);
 }
 
 .themeIcon {
@@ -220,7 +220,7 @@
 }
 
 .activeThemeCard .themeLabel {
-    color: #007bff;
+    color: var(--accent);
 }
 
 /* Dark Mode Overrides for Settings cards background */
@@ -233,14 +233,14 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 [data-theme="dark"] .activeThemeCard {
-    border-color: #3b82f6 !important;
-    box-shadow: 0 0 0 1px #3b82f6, 0 8px 24px rgba(59, 130, 246, 0.25) !important;
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 1px var(--accent), 0 8px 24px rgba(59, 130, 246, 0.25) !important;
     background: #1e293b;
 }
 [data-theme="dark"] .activeThemeCard .themeMeta {
     background: rgba(59, 130, 246, 0.08);
 }
 [data-theme="dark"] .activeThemeCard .themeLabel {
-    color: #3b82f6;
+    color: var(--accent);
 }
 

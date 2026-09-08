@@ -43,7 +43,7 @@
   display: block;
   font-size: 2rem;
   font-weight: 700;
-  color: #ff6b6b;
+  color: var(--accent);
 }
 
 .statLabel {
@@ -80,7 +80,7 @@
 }
 
 .tab.active {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
   color: white;
 }
 
@@ -123,12 +123,12 @@
 .input:focus,
 .textarea:focus {
   outline: none;
-  border-color: #ff6b6b;
+  border-color: var(--accent);
 }
 
 .addBtn {
   grid-column: 1 / -1;
-  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -167,7 +167,7 @@
 
 .searchInput:focus {
   outline: none;
-  border-color: #ff6b6b;
+  border-color: var(--accent);
 }
 
 .customerGrid {
@@ -180,7 +180,7 @@
   background: var(--bg-app);
   border-radius: 16px;
   padding: 1.5rem;
-  border-left: 4px solid #ff6b6b;
+  border-left: 4px solid var(--accent);
   transition: transform 0.3s ease;
 }
 
@@ -206,7 +206,7 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
   color: white;
   display: flex;
   align-items: center;
@@ -229,7 +229,7 @@
 }
 
 .deleteBtn {
-  background: #dc3545;
+  background: var(--danger);
   color: white;
   border: none;
   padding: 0.5rem 0.75rem;
@@ -239,7 +239,7 @@
 }
 
 .deleteBtn:hover {
-  background: #c82333;
+  background: var(--danger);
 }
 
 .customerDetails {
@@ -264,7 +264,7 @@
 
 .pointsBtn {
   flex: 1;
-  background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+  background: linear-gradient(135deg, var(--warning) 0%, #ff9800 100%);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -307,7 +307,7 @@
   background: var(--bg-app);
   padding: 1.5rem;
   border-radius: 12px;
-  border-left: 4px solid #ffc107;
+  border-left: 4px solid var(--warning);
   transition: transform 0.3s ease;
 }
 
@@ -320,7 +320,7 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+  background: linear-gradient(135deg, var(--warning) 0%, #ff9800 100%);
   color: white;
   display: flex;
   align-items: center;

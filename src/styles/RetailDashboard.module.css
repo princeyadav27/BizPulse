@@ -26,7 +26,7 @@
 }
 
 .businessBadge {
-  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%);
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
@@ -62,14 +62,16 @@
 }
 
 .kpiIcon {
-  font-size: 3rem;
-  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-  width: 80px;
-  height: 80px;
-  border-radius: 12px;
+  font-size: 1.75rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .kpiContent h3 {
@@ -89,8 +91,8 @@
 .kpiChange {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #28a745;
-  background-color: #d4edda;
+  color: var(--success);
+  background-color: var(--success-soft);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
 }
@@ -150,7 +152,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-secondary);
-  background: #e9ecef;
+  background: var(--bg-sunken);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
 }
@@ -158,7 +160,7 @@
 .productRevenue p {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #28a745;
+  color: var(--success);
   margin: 0;
 }
 
@@ -189,17 +191,17 @@
   padding: 1.5rem;
   border-radius: 8px;
   background: var(--bg-app);
-  border-left: 4px solid #ffc107;
+  border-left: 4px solid var(--warning);
 }
 
 .alertCard.critical {
-  border-left-color: #dc3545;
-  background: #f8d7da;
+  border-left-color: var(--danger);
+  background: var(--danger-soft);
 }
 
 .alertCard.warning {
-  border-left-color: #ffc107;
-  background: #fff3cd;
+  border-left-color: var(--warning);
+  background: var(--warning-soft);
 }
 
 .alertIcon {
@@ -222,7 +224,7 @@
 }
 
 .alertBtn {
-  background: #dc3545;
+  background: var(--danger);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -233,7 +235,7 @@
 }
 
 .alertBtn:hover {
-  background: #c82333;
+  background: var(--danger);
 }
 
 .storeStatus {
@@ -282,7 +284,7 @@
 .progressBar {
   width: 100%;
   height: 8px;
-  background: #e9ecef;
+  background: var(--bg-sunken);
   border-radius: 4px;
   overflow: hidden;
   margin: 0.5rem 0;
@@ -290,7 +292,7 @@
 
 .progressFill {
   height: 100%;
-  background: linear-gradient(90deg, #4CAF50 0%, #45a049 100%);
+  background: linear-gradient(90deg, var(--success) 0%, var(--success) 100%);
   border-radius: 4px;
   transition: width 0.5s ease;
 }
@@ -300,7 +302,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   color: white;
-  background: #4CAF50;
+  background: var(--success);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
 }
@@ -342,8 +344,8 @@
 }
 
 .actionBtn:hover {
-  border-color: #4CAF50;
-  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  border-color: var(--success);
+  background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%);
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);

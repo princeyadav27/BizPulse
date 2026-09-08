@@ -4,6 +4,7 @@ import Styles from '../styles/RestaurantDashboard.module.css'
 import ThoughtsStyles from '../styles/BusinessThoughts.module.css'
 import BusinessThoughts from './BusinessThoughts'
 import BusinessNews from './BusinessNews'
+import { PiArmchair, PiChartLine, PiClipboardText, PiCreditCard, PiCurrencyInr, PiForkKnife, PiPackage, PiWarning } from 'react-icons/pi'
 
 const RestaurantDashboard = () => {
     const navigate = useNavigate();
@@ -135,7 +136,7 @@ const RestaurantDashboard = () => {
                 {/* Main KPI Cards - Only 5 Features */}
                 <div className={Styles.kpiGrid}>
                     <div className={Styles.kpiCard}>
-                        <div className={Styles.kpiIcon}>💰</div>
+                        <div className={Styles.kpiIcon}><PiCurrencyInr aria-hidden="true" /></div>
                         <div className={Styles.kpiContent}>
                             <h3>Today Total Sales</h3>
                             <p>{formatCurrency(dashboardData.todaySales)}</p>
@@ -144,7 +145,7 @@ const RestaurantDashboard = () => {
                     </div>
 
                     <div className={Styles.kpiCard}>
-                        <div className={Styles.kpiIcon}>�</div>
+                        <div className={Styles.kpiIcon}><PiForkKnife aria-hidden="true" /></div>
                         <div className={Styles.kpiContent}>
                             <h3>Total Orders</h3>
                             <p>{dashboardData.totalOrders}</p>
@@ -153,7 +154,7 @@ const RestaurantDashboard = () => {
                     </div>
 
                     <div className={Styles.kpiCard}>
-                        <div className={Styles.kpiIcon}>🪑</div>
+                        <div className={Styles.kpiIcon}><PiArmchair aria-hidden="true" /></div>
                         <div className={Styles.kpiContent}>
                             <h3>Available Tables</h3>
                             <p>{dashboardData.availableTables}</p>
@@ -162,7 +163,7 @@ const RestaurantDashboard = () => {
                     </div>
 
                     <div className={`${Styles.kpiCard} ${dashboardData.lowStockAlerts > 0 ? Styles.alert : ''}`}>
-                        <div className={Styles.kpiIcon}>⚠️</div>
+                        <div className={Styles.kpiIcon}><PiWarning aria-hidden="true" /></div>
                         <div className={Styles.kpiContent}>
                             <h3>Low Stock Alert</h3>
                             <p>{dashboardData.lowStockAlerts}</p>
@@ -173,7 +174,7 @@ const RestaurantDashboard = () => {
                     </div>
 
                     <div className={Styles.kpiCard}>
-                        <div className={Styles.kpiIcon}>📊</div>
+                        <div className={Styles.kpiIcon}><PiChartLine aria-hidden="true" /></div>
                         <div className={Styles.kpiContent}>
                             <h3>Daily Profit / Expense Summary</h3>
                             <div className={Styles.profitExpense}>
@@ -239,19 +240,19 @@ const RestaurantDashboard = () => {
                     <h2>Quick Actions</h2>
                     <div className={Styles.actionsGrid}>
                         <button className={Styles.actionBtn} onClick={() => navigate('/restaurant-orders')}>
-                            <span className={Styles.btnIcon}>🍽️</span>
+                            <span className={Styles.btnIcon}><PiForkKnife aria-hidden="true" /></span>
                             <span>New Order</span>
                         </button>
                         <button className={Styles.actionBtn} onClick={() => navigate('/restaurant-billing')}>
-                            <span className={Styles.btnIcon}>💳</span>
+                            <span className={Styles.btnIcon}><PiCreditCard aria-hidden="true" /></span>
                             <span>Generate Bill</span>
                         </button>
                         <button className={Styles.actionBtn} onClick={() => navigate('/menu-management')}>
-                            <span className={Styles.btnIcon}>📋</span>
+                            <span className={Styles.btnIcon}><PiClipboardText aria-hidden="true" /></span>
                             <span>Manage Menu</span>
                         </button>
                         <button className={Styles.actionBtn} onClick={() => navigate('/restaurant-stock')}>
-                            <span className={Styles.btnIcon}>📦</span>
+                            <span className={Styles.btnIcon}><PiPackage aria-hidden="true" /></span>
                             <span>Kitchen Stock</span>
                         </button>
                     </div>

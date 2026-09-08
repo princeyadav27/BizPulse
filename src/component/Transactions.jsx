@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Styles from '../styles/Transactions.module.css'
+import { PiCurrencyInr, PiPackage, PiReceipt } from 'react-icons/pi'
 
 const Transactions = () => {
     const [transactions, setTransactions] = useState([]);
@@ -125,7 +126,7 @@ const Transactions = () => {
                 {/* Summary Cards */}
                 <div className={Styles.summaryGrid}>
                     <div className={Styles.summaryCard}>
-                        <div className={Styles.cardIcon}>💰</div>
+                        <div className={Styles.cardIcon}><PiCurrencyInr aria-hidden="true" /></div>
                         <div className={Styles.cardContent}>
                             <h3>Total Sales</h3>
                             <p className={Styles.cardValue}>₹{getTotalAmount().toFixed(2)}</p>
@@ -133,7 +134,7 @@ const Transactions = () => {
                         </div>
                     </div>
                     <div className={Styles.summaryCard}>
-                        <div className={Styles.cardIcon}>📦</div>
+                        <div className={Styles.cardIcon}><PiPackage aria-hidden="true" /></div>
                         <div className={Styles.cardContent}>
                             <h3>Stock Purchased</h3>
                             <p className={Styles.cardValue}>
@@ -143,7 +144,7 @@ const Transactions = () => {
                         </div>
                     </div>
                     <div className={Styles.summaryCard}>
-                        <div className={Styles.cardIcon}>🧾</div>
+                        <div className={Styles.cardIcon}><PiReceipt aria-hidden="true" /></div>
                         <div className={Styles.cardContent}>
                             <h3>Total Transactions</h3>
                             <p className={Styles.cardValue}>{transactions.length}</p>

@@ -15,7 +15,7 @@
 
 .addBtn {
     padding: 10px 20px;
-    background: #007bff;
+    background: var(--accent);
     color: white;
     border: none;
     border-radius: 5px;
@@ -24,7 +24,7 @@
 }
 
 .addBtn:hover {
-    background: #0056b3;
+    background: var(--accent-hover);
 }
 
 .summary {
@@ -56,11 +56,11 @@
 }
 
 .present {
-    color: #28a745 !important;
+    color: var(--success) !important;
 }
 
 .absent {
-    color: #dc3545 !important;
+    color: var(--danger) !important;
 }
 
 .addForm {
@@ -93,7 +93,7 @@
 .submitBtn {
     grid-column: span 2;
     padding: 10px;
-    background: #28a745;
+    background: var(--success);
     color: white;
     border: none;
     border-radius: 4px;
@@ -102,7 +102,7 @@
 }
 
 .submitBtn:hover {
-    background: #218838;
+    background: var(--success);
 }
 
 .staffList {
@@ -151,30 +151,30 @@
 }
 
 .presentBtn:hover {
-    background: #d4edda;
-    border-color: #28a745;
+    background: var(--success-soft);
+    border-color: var(--success);
 }
 
 .absentBtn:hover {
-    background: #f8d7da;
-    border-color: #dc3545;
+    background: var(--danger-soft);
+    border-color: var(--danger);
 }
 
 .presentBtn.active {
-    background: #28a745;
+    background: var(--success);
     color: white;
-    border-color: #28a745;
+    border-color: var(--success);
 }
 
 .absentBtn.active {
-    background: #dc3545;
+    background: var(--danger);
     color: white;
-    border-color: #dc3545;
+    border-color: var(--danger);
 }
 
 .deleteBtn {
     padding: 6px 12px;
-    background: #dc3545;
+    background: var(--danger);
     color: white;
     border: none;
     border-radius: 4px;
@@ -183,5 +183,5 @@
 }
 
 .deleteBtn:hover {
-    background: #c82333;
+    background: var(--danger);
 }

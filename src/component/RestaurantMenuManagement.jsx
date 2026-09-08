@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Styles from '../styles/RestaurantMenuManagement.module.css'
+import { PiTrash } from 'react-icons/pi'
 
 const RestaurantMenuManagement = () => {
     const [menuItems, setMenuItems] = useState([]);
@@ -140,7 +141,7 @@ const RestaurantMenuManagement = () => {
         <div className={Styles.menuManagement}>
             <div className={Styles.container}>
                 <div className={Styles.header}>
-                    <h1>📋 Menu Management</h1>
+                    <h1>Menu Management</h1>
                     <div className={Styles.stats}>
                         <div className={Styles.statCard}>
                             <span className={Styles.statNumber}>{menuItems.length}</span>
@@ -163,7 +164,7 @@ const RestaurantMenuManagement = () => {
                         className={`${Styles.tab} ${activeTab === 'items' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('items')}
                     >
-                        📝 All Items
+                        All Items
                     </button>
                     {categories.map(category => (
                         <button 
@@ -178,14 +179,14 @@ const RestaurantMenuManagement = () => {
                         className={`${Styles.tab} ${activeTab === 'categories' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('categories')}
                     >
-                        🏷️ Manage Categories
+                        Manage Categories
                     </button>
                 </div>
 
                 {/* Add/Edit Item Form */}
                 {(activeTab === 'items' || categories.includes(activeTab)) && (
                     <div className={Styles.formSection}>
-                        <h2>{editingItem ? '✏️ Edit Menu Item' : '➕ Add New Item'}</h2>
+                        <h2>{editingItem ? 'Edit Menu Item' : 'Add New Item'}</h2>
                         <div className={Styles.itemForm}>
                             <div className={Styles.formRow}>
                                 <input
@@ -252,15 +253,15 @@ const RestaurantMenuManagement = () => {
                                 {editingItem ? (
                                     <>
                                         <button className={Styles.saveBtn} onClick={updateMenuItem}>
-                                            💾 Update Item
+                                            Update Item
                                         </button>
                                         <button className={Styles.cancelBtn} onClick={cancelEdit}>
-                                            ❌ Cancel
+                                            Cancel
                                         </button>
                                     </>
                                 ) : (
                                     <button className={Styles.addBtn} onClick={addMenuItem}>
-                                        ➕ Add Item
+                                        Add Item
                                     </button>
                                 )}
                             </div>
@@ -271,7 +272,7 @@ const RestaurantMenuManagement = () => {
                 {/* Categories Management */}
                 {activeTab === 'categories' && (
                     <div className={Styles.formSection}>
-                        <h2>🏷️ Category Management</h2>
+                        <h2>Category Management</h2>
                         <div className={Styles.categoryForm}>
                             <div className={Styles.formRow}>
                                 <input
@@ -282,7 +283,7 @@ const RestaurantMenuManagement = () => {
                                     className={Styles.input}
                                 />
                                 <button className={Styles.addBtn} onClick={addCategory}>
-                                    ➕ Add Category
+                                    Add Category
                                 </button>
                             </div>
                         </div>
@@ -293,9 +294,7 @@ const RestaurantMenuManagement = () => {
                                     <button 
                                         className={Styles.deleteBtn}
                                         onClick={() => deleteCategory(category)}
-                                    >
-                                        🗑️
-                                    </button>
+                                    ><PiTrash aria-hidden="true" /></button>
                                 </div>
                             ))}
                         </div>
@@ -314,14 +313,12 @@ const RestaurantMenuManagement = () => {
                                             className={Styles.editBtn}
                                             onClick={() => startEdit(item)}
                                         >
-                                            ✏️
+                                            
                                         </button>
                                         <button 
                                             className={Styles.deleteBtn}
                                             onClick={() => deleteMenuItem(item.id)}
-                                        >
-                                            🗑️
-                                        </button>
+                                        ><PiTrash aria-hidden="true" /></button>
                                     </div>
                                 </div>
                                 <div className={Styles.itemDetails}>
@@ -331,7 +328,7 @@ const RestaurantMenuManagement = () => {
                                 <p className={Styles.description}>{item.description}</p>
                                 <div className={Styles.itemFooter}>
                                     <span className={`${Styles.availability} ${item.available ? Styles.available : Styles.unavailable}`}>
-                                        {item.available ? '✅ Available' : '❌ Out of Stock'}
+                                        {item.available ? 'Available' : 'Out of Stock'}
                                     </span>
                                     <button 
                                         className={Styles.toggleBtn}

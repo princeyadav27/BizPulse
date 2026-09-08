@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Styles from '../styles/SalesUpload.module.css'
+import { PiChartLineUp } from 'react-icons/pi'
 
 const SalesUpload = () => {
     const navigate = useNavigate();
@@ -741,7 +742,7 @@ const SalesUpload = () => {
                             </div>
 
                             <div className={Styles.excelUploadArea}>
-                                <div className={Styles.uploadIcon}>📊</div>
+                                <div className={Styles.uploadIcon}><PiChartLineUp aria-hidden="true" /></div>
                                 <h3>Upload Excel File</h3>
                                 <p>Upload your sales data in Excel format (.xlsx, .xls, .csv)</p>
                                 

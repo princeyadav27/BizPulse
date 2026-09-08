@@ -228,11 +228,11 @@ const BusinessNews = ({ businessType }) => {
 
     const getIcon = () => {
         switch (businessType) {
-            case 'petrol-pump': return '⛽';
-            case 'restaurant': return '🍽️';
-            case 'retail': return '🏪';
-            case 'service': return '🔧';
-            default: return '📰';
+            case 'petrol-pump': return 'PP';
+            case 'restaurant': return 'RT';
+            case 'retail': return 'RL';
+            case 'service': return 'SV';
+            default: return 'NW';
         }
     };
 
