@@ -315,34 +315,34 @@ const Reports = () => {
                         >
                             {userBusiness === 'petrol-pump' && (
                                 <>
-                                    <option value="fuel-sales">⛽ Fuel Sales</option>
-                                    <option value="stock">🛢️ Stock Report</option>
-                                    <option value="transactions">🧾 Transactions</option>
+                                    <option value="fuel-sales">Fuel Sales</option>
+                                    <option value="stock">Stock Report</option>
+                                    <option value="transactions">Transactions</option>
                                 </>
                             )}
                             
                             {userBusiness === 'restaurant' && (
                                 <>
-                                    <option value="orders">📝 Orders</option>
-                                    <option value="menu">🍽️ Menu Performance</option>
-                                    <option value="stock">📦 Kitchen Stock</option>
-                                    <option value="sales">💰 Sales</option>
+                                    <option value="orders">Orders</option>
+                                    <option value="menu">Menu Performance</option>
+                                    <option value="stock">Kitchen Stock</option>
+                                    <option value="sales">Sales</option>
                                 </>
                             )}
                             
                             {userBusiness === 'retail' && (
                                 <>
-                                    <option value="sales">📊 Sales</option>
-                                    <option value="stock">📦 Inventory</option>
-                                    <option value="products">🛍️ Products</option>
+                                    <option value="sales">Sales</option>
+                                    <option value="stock">Inventory</option>
+                                    <option value="products">Products</option>
                                 </>
                             )}
                             
                             {userBusiness === 'service' && (
                                 <>
-                                    <option value="services">🔧 Services</option>
-                                    <option value="bookings">📅 Bookings</option>
-                                    <option value="staff">👥 Staff Performance</option>
+                                    <option value="services">Services</option>
+                                    <option value="bookings">Bookings</option>
+                                    <option value="staff">Staff Performance</option>
                                 </>
                             )}
                         </select>
@@ -357,9 +357,9 @@ const Reports = () => {
                             }}
                             className={Styles.dropdown}
                         >
-                            <option value="week">📅 Last Week</option>
-                            <option value="month">📅 Last Month</option>
-                            <option value="year">📅 Last Year</option>
+                            <option value="week">Last Week</option>
+                            <option value="month">Last Month</option>
+                            <option value="year">Last Year</option>
                         </select>
                     </div>
                 </div>

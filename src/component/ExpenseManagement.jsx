@@ -61,7 +61,7 @@ const ExpenseManagement = () => {
     return (
         <div className={Styles.expenseManagement}>
             <div className={Styles.header}>
-                <h1>💰 Expense Management</h1>
+                <h1>Expense Management</h1>
                 <button onClick={() => setShowAddForm(!showAddForm)} className={Styles.addBtn}>
                     {showAddForm ? 'Cancel' : '+ Add Expense'}
                 </button>

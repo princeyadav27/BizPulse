@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Styles from '../styles/RestaurantTableManagement.module.css'
+import { PiTrash } from 'react-icons/pi'
 
 const RestaurantTableManagement = () => {
     const [tables, setTables] = useState([]);
@@ -155,11 +156,11 @@ const RestaurantTableManagement = () => {
 
     const getStatusText = (status) => {
         switch(status) {
-            case 'available': return '✅ Available';
-            case 'occupied': return '🍽️ Occupied';
-            case 'reserved': return '📅 Reserved';
-            case 'maintenance': return '🔧 Maintenance';
-            default: return '❓ Unknown';
+            case 'available': return 'Available';
+            case 'occupied': return 'Occupied';
+            case 'reserved': return 'Reserved';
+            case 'maintenance': return 'Maintenance';
+            default: return 'Unknown';
         }
     };
 
@@ -204,7 +205,7 @@ const RestaurantTableManagement = () => {
         <div className={Styles.tableManagement}>
             <div className={Styles.container}>
                 <div className={Styles.header}>
-                    <h1>🪑 Table Management</h1>
+                    <h1>Table Management</h1>
                     <div className={Styles.stats}>
                         <div className={Styles.statCard}>
                             <span className={Styles.statNumber}>{tables.length}</span>
@@ -237,19 +238,19 @@ const RestaurantTableManagement = () => {
                         className={`${Styles.tab} ${activeTab === 'tables' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('tables')}
                     >
-                        🪑 Tables
+                        Tables
                     </button>
                     <button 
                         className={`${Styles.tab} ${activeTab === 'reservations' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('reservations')}
                     >
-                        📅 Reservations
+                        Reservations
                     </button>
                     <button 
                         className={`${Styles.tab} ${activeTab === 'layout' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('layout')}
                     >
-                        🗺️ Layout
+                        Layout
                     </button>
                 </div>
 
@@ -257,7 +258,7 @@ const RestaurantTableManagement = () => {
                 {activeTab === 'tables' && (
                     <div className={Styles.tablesSection}>
                         <div className={Styles.formSection}>
-                            <h2>➕ Add New Table</h2>
+                            <h2>Add New Table</h2>
                             <div className={Styles.tableForm}>
                                 <div className={Styles.formRow}>
                                     <input
@@ -290,7 +291,7 @@ const RestaurantTableManagement = () => {
                                     </select>
                                 </div>
                                 <button className={Styles.addBtn} onClick={addTable}>
-                                    ➕ Add Table
+                                    Add Table
                                 </button>
                             </div>
                         </div>
@@ -304,9 +305,7 @@ const RestaurantTableManagement = () => {
                                             <button 
                                                 className={Styles.deleteBtn}
                                                 onClick={() => deleteTable(table.id)}
-                                            >
-                                                🗑️
-                                            </button>
+                                            ><PiTrash aria-hidden="true" /></button>
                                         </div>
                                     </div>
                                     <div className={Styles.tableDetails}>
@@ -366,7 +365,7 @@ const RestaurantTableManagement = () => {
                 {activeTab === 'reservations' && (
                     <div className={Styles.reservationsSection}>
                         <div className={Styles.formSection}>
-                            <h2>📅 New Reservation</h2>
+                            <h2>New Reservation</h2>
                             <div className={Styles.reservationForm}>
                                 <div className={Styles.formRow}>
                                     <input
@@ -431,7 +430,7 @@ const RestaurantTableManagement = () => {
                                     />
                                 </div>
                                 <button className={Styles.addBtn} onClick={addReservation}>
-                                    📅 Make Reservation
+                                    Make Reservation
                                 </button>
                             </div>
                         </div>
@@ -442,15 +441,13 @@ const RestaurantTableManagement = () => {
                                     <div className={Styles.reservationHeader}>
                                         <div className={Styles.customerInfo}>
                                             <h3>{reservation.customerName}</h3>
-                                            <p>📞 {reservation.customerPhone}</p>
+                                            <p>{reservation.customerPhone}</p>
                                         </div>
                                         <div className={Styles.reservationActions}>
                                             <button 
                                                 className={Styles.deleteBtn}
                                                 onClick={() => deleteReservation(reservation.id)}
-                                            >
-                                                🗑️
-                                            </button>
+                                            ><PiTrash aria-hidden="true" /></button>
                                         </div>
                                     </div>
                                     <div className={Styles.reservationDetails}>
@@ -504,7 +501,7 @@ const RestaurantTableManagement = () => {
                 {/* Layout View */}
                 {activeTab === 'layout' && (
                     <div className={Styles.layoutSection}>
-                        <h2>🗺️ Restaurant Layout</h2>
+                        <h2>Restaurant Layout</h2>
                         
                         <div className={Styles.floorPlan}>
                             <div className={Styles.floor}>

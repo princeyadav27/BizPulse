@@ -275,7 +275,7 @@ const RestaurantBilling = () => {
                 </head>
                 <body>
                     <div class="header">
-                        <h1>🍽️ ${restaurantName || 'Restaurant'}</h1>
+                        <h1>${restaurantName || 'Restaurant'}</h1>
                         <h2>Restaurant Bill</h2>
                         <p>Bill Number: ${bill.billNumber}</p>
                         <p>Date: ${new Date(bill.timestamp).toLocaleString()}</p>
@@ -302,8 +302,8 @@ const RestaurantBilling = () => {
                         <div class="item"><strong>Payment:</strong><span>${bill.paymentMethod}</span></div>
                     </div>
                     <div class="footer">
-                        <p>Thank you for visiting ${restaurantName || 'our restaurant'}! 🙏</p>
-                        <p>🍽️ ${restaurantName || 'Restaurant'} - Quality Food & Service</p>
+                        <p>Thank you for visiting ${restaurantName || 'our restaurant'}! </p>
+                        <p>${restaurantName || 'Restaurant'} - Quality Food & Service</p>
                     </div>
                 </body>
             </html>
@@ -326,9 +326,9 @@ const RestaurantBilling = () => {
                 <div className={Styles.header}>
                     <div>
                         <h1>{restaurantName || 'Restaurant Billing'}</h1>
-                        <p className={Styles.subtitle}>💳 Billing & POS System</p>
+                        <p className={Styles.subtitle}>Billing & POS System</p>
                         {restaurantName && (
-                            <p className={Styles.businessInfo}>🍽️ {restaurantName}</p>
+                            <p className={Styles.businessInfo}>{restaurantName}</p>
                         )}
                     </div>
                     <div className={Styles.quickStats}>
@@ -348,13 +348,13 @@ const RestaurantBilling = () => {
                     <div className={Styles.billingSection}>
                         {/* Customer Info */}
                         <div className={Styles.customerInfo}>
-                            <h3>👤 Customer Information</h3>
+                            <h3>Customer Information</h3>
                             
                             {/* Customer Search */}
                             <div className={Styles.searchSection}>
                                 <input
                                     type="text"
-                                    placeholder="🔍 Search Customer or Previous Order..."
+                                    placeholder="Search Customer or Previous Order..."
                                     value={customerSearch}
                                     onChange={(e) => setCustomerSearch(e.target.value)}
                                     className={Styles.searchInput}
@@ -437,7 +437,7 @@ const RestaurantBilling = () => {
                         {/* Selected Orders Summary */}
                         {showOrderSelection && selectedOrders.length > 0 && (
                             <div className={Styles.ordersInfo}>
-                                <h3>📋 Customer Orders ({selectedOrders.length})</h3>
+                                <h3>Customer Orders ({selectedOrders.length})</h3>
                                 <div className={Styles.ordersList}>
                                     {selectedOrders.map(order => (
                                         <div key={order.id} className={Styles.orderItem}>
@@ -452,7 +452,7 @@ const RestaurantBilling = () => {
 
                         {/* Cart */}
                         <div className={Styles.cart}>
-                            <h3>🛒 Cart</h3>
+                            <h3>Cart</h3>
                             {cart.length === 0 ? (
                                 <p className={Styles.emptyCart}>Cart is empty</p>
                             ) : (
@@ -489,7 +489,7 @@ const RestaurantBilling = () => {
 
                         {/* Payment & Discounts */}
                         <div className={Styles.paymentSection}>
-                            <h3>💳 Payment & Discounts</h3>
+                            <h3>Payment & Discounts</h3>
                             
                             <div className={Styles.paymentMethods}>
                                 <label>
@@ -499,7 +499,7 @@ const RestaurantBilling = () => {
                                         checked={paymentMethod === 'cash'}
                                         onChange={(e) => setPaymentMethod(e.target.value)}
                                     />
-                                    💵 Cash
+                                    Cash
                                 </label>
                                 <label>
                                     <input
@@ -508,7 +508,7 @@ const RestaurantBilling = () => {
                                         checked={paymentMethod === 'upi'}
                                         onChange={(e) => setPaymentMethod(e.target.value)}
                                     />
-                                    📱 UPI
+                                    UPI
                                 </label>
                                 <label>
                                     <input
@@ -517,7 +517,7 @@ const RestaurantBilling = () => {
                                         checked={paymentMethod === 'card'}
                                         onChange={(e) => setPaymentMethod(e.target.value)}
                                     />
-                                    💳 Card
+                                    Card
                                 </label>
                             </div>
 
@@ -543,7 +543,7 @@ const RestaurantBilling = () => {
 
                         {/* Bill Summary */}
                         <div className={Styles.billSummary}>
-                            <h3>🧾 Bill Summary</h3>
+                            <h3>Bill Summary</h3>
                             <div className={Styles.summaryRow}>
                                 <span>Subtotal:</span>
                                 <span>{formatCurrency(calculateSubtotal())}</span>
@@ -568,14 +568,14 @@ const RestaurantBilling = () => {
                                 className={Styles.printBtn}
                                 onClick={() => window.print()}
                             >
-                                🖨️ Print Bill
+                                Print Bill
                             </button>
                             <button 
                                 className={Styles.generateBtn}
                                 onClick={generateBill}
                                 disabled={cart.length === 0}
                             >
-                                💳 Generate Bill
+                                Generate Bill
                             </button>
                         </div>
                     </div>

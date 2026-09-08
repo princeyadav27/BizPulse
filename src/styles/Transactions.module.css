@@ -44,14 +44,16 @@
 }
 
 .cardIcon {
-  font-size: 3rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  width: 80px;
-  height: 80px;
-  border-radius: 12px;
+  font-size: 1.75rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .cardContent h3 {
@@ -156,13 +158,13 @@
 }
 
 .typeBadge.sales {
-  background-color: #d4edda;
-  color: #28a745;
+  background-color: var(--success-soft);
+  color: var(--success);
 }
 
 .typeBadge.stock {
-  background-color: #cce5ff;
-  color: #004085;
+  background-color: var(--accent-soft);
+  color: var(--accent-ink);
 }
 
 .amount {

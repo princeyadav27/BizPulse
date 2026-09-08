@@ -25,19 +25,19 @@
 
 /* Accent lines matching BusinessThoughts */
 .petrol-pump::before {
-  background: linear-gradient(to bottom, #7c3aed, #4f46e5);
+  background: linear-gradient(to bottom, #7c3aed, var(--accent));
 }
 
 .restaurant::before {
-  background: linear-gradient(to bottom, #ee5a24, #ff6b6b);
+  background: linear-gradient(to bottom, var(--accent-hover), var(--accent));
 }
 
 .retail::before {
-  background: linear-gradient(to bottom, #059669, #10b981);
+  background: linear-gradient(to bottom, var(--success), var(--success));
 }
 
 .service::before {
-  background: linear-gradient(to bottom, #06b6d4, #0284c7);
+  background: linear-gradient(to bottom, #06b6d4, var(--accent-ink));
 }
 
 .general::before {
@@ -51,7 +51,7 @@
 
 /* Hover highlights for specific businesses */
 .petrol-pump:hover { border-color: rgba(79, 70, 229, 0.3); }
-.restaurant:hover { border-color: rgba(255, 107, 107, 0.3); }
+.restaurant:hover { border-color: rgba(232, 89, 12, 0.3); }
 .retail:hover { border-color: rgba(16, 185, 129, 0.3); }
 .service:hover { border-color: rgba(2, 132, 199, 0.3); }
 .general:hover { border-color: rgba(107, 114, 128, 0.3); }
@@ -82,7 +82,14 @@
 }
 
 .icon {
-  font-size: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
 }
 
 .liveHeader {
@@ -156,9 +163,9 @@
 
 /* Custom source colors to align with business */
 .petrol-pump .source { color: #6366f1; }
-.restaurant .source { color: #ff6b6b; }
-.retail .source { color: #10b981; }
-.service .source { color: #0284c7; }
+.restaurant .source { color: var(--accent); }
+.retail .source { color: var(--success); }
+.service .source { color: var(--accent-ink); }
 
 .divider {
   color: var(--border-color);

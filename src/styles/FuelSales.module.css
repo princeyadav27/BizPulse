@@ -76,7 +76,7 @@
 
 .cardIcon {
   font-size: 3rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
   width: 80px;
   height: 80px;
   border-radius: 12px;
@@ -177,7 +177,7 @@
 
 .amount {
   font-weight: 600;
-  color: #28a745;
+  color: var(--success);
 }
 
 .metricsSection {
@@ -205,7 +205,7 @@
   padding: 1.5rem;
   border-radius: 8px;
   text-align: center;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid var(--accent);
 }
 
 .metricCard h4 {

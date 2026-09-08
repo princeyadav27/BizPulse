@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Styles from '../styles/StockManagement.module.css'
+import { PiCheckCircle, PiLightning, PiWarning } from 'react-icons/pi'
 
 const StockManagement = () => {
     const [userBusiness, setUserBusiness] = useState('');
@@ -27,9 +28,9 @@ const StockManagement = () => {
                 itemLabel: 'Product / Item Name',
                 qtyLabel: 'Quantity (Units)',
                 priceLabel: 'Price per Unit (₹)',
-                capacityTitle: '⚙️ Inventory Threshold Settings',
-                capacityBtn: '⚙️ Inventory Settings',
-                updateCapacityBtn: '🔄 Update Inventory Thresholds',
+                capacityTitle: 'Inventory Threshold Settings',
+                capacityBtn: 'Inventory Settings',
+                updateCapacityBtn: 'Update Inventory Thresholds',
                 unit: ' Units',
                 capacityLabel: 'Max Stock Limit',
                 minLabel: 'Min Alert Level',
@@ -41,9 +42,9 @@ const StockManagement = () => {
                 itemLabel: 'Part / Material Name',
                 qtyLabel: 'Quantity (Units)',
                 priceLabel: 'Price per Unit (₹)',
-                capacityTitle: '⚙️ Parts Threshold Settings',
-                capacityBtn: '⚙️ Stock Settings',
-                updateCapacityBtn: '🔄 Update Stock Thresholds',
+                capacityTitle: 'Parts Threshold Settings',
+                capacityBtn: 'Stock Settings',
+                updateCapacityBtn: 'Update Stock Thresholds',
                 unit: ' Units',
                 capacityLabel: 'Max Stock Limit',
                 minLabel: 'Min Alert Level',
@@ -55,9 +56,9 @@ const StockManagement = () => {
                 itemLabel: 'Fuel Type',
                 qtyLabel: 'Quantity (Liters)',
                 priceLabel: 'Price per Liter (₹)',
-                capacityTitle: '⚙️ Tank Capacity Settings',
-                capacityBtn: '⚙️ Tank Settings',
-                updateCapacityBtn: '🔄 Update Tank Capacity',
+                capacityTitle: 'Tank Capacity Settings',
+                capacityBtn: 'Tank Settings',
+                updateCapacityBtn: 'Update Tank Capacity',
                 unit: 'L',
                 capacityLabel: 'Max Capacity',
                 minLabel: 'Min Level',
@@ -676,7 +677,7 @@ const StockManagement = () => {
                         {stockData.filter(item => item.status !== 'normal').map(item => (
                             <div key={item.id} className={Styles.alertCard}>
                                 <div className={Styles.alertIcon}>
-                                    {item.status === 'critical' ? '⚠️' : '⚡'}
+                                    {item.status === 'critical' ? <PiWarning aria-hidden="true" /> : <PiLightning aria-hidden="true" />}
                                 </div>
                                 <div className={Styles.alertContent}>
                                     <h4>{item.fuelType} - {getStatusText(item.status)}</h4>
@@ -694,7 +695,7 @@ const StockManagement = () => {
                         ))}
                         {stockData.filter(item => item.status === 'normal').length === stockData.length && (
                             <div className={Styles.noAlerts}>
-                                <div className={Styles.successIcon}>✅</div>
+                                <div className={Styles.successIcon}><PiCheckCircle aria-hidden="true" /></div>
                                 <p>All stock levels are normal. No immediate action required.</p>
                             </div>
                         )}

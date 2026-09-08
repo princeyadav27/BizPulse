@@ -43,7 +43,7 @@
   display: block;
   font-size: 2rem;
   font-weight: 700;
-  color: #ff6b6b;
+  color: var(--accent);
 }
 
 .statLabel {
@@ -80,7 +80,7 @@
 }
 
 .tab.active {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
   color: white;
 }
 
@@ -125,11 +125,11 @@
 .input:focus,
 .select:focus {
   outline: none;
-  border-color: #ff6b6b;
+  border-color: var(--accent);
 }
 
 .addBtn {
-  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -170,7 +170,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, var(--bg-sunken) 0%, var(--bg-sunken) 100%);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -187,7 +187,7 @@
 }
 
 .deleteBtn {
-  background: #dc3545;
+  background: var(--danger);
   color: white;
   border: none;
   padding: 0.5rem;
@@ -198,7 +198,7 @@
 }
 
 .deleteBtn:hover {
-  background: #c82333;
+  background: var(--danger);
 }
 
 .tableDetails {
@@ -246,7 +246,7 @@
 }
 
 .releaseBtn {
-  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+  background: linear-gradient(135deg, var(--info) 0%, var(--info) 100%);
   color: white;
   border: none;
   padding: 0.375rem 0.75rem;
@@ -286,7 +286,7 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, var(--bg-sunken) 0%, var(--bg-sunken) 100%);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -310,7 +310,7 @@
 .specialRequests {
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid #e9ecef;
+  border-top: 1px solid var(--bg-sunken);
 }
 
 .specialRequests strong {
@@ -330,7 +330,7 @@
 .reservationFooter {
   padding: 1rem 1.5rem;
   background: var(--bg-app);
-  border-top: 1px solid #e9ecef;
+  border-top: 1px solid var(--bg-sunken);
 }
 
 .layoutSection {
@@ -391,22 +391,22 @@
 }
 
 .tableLayout.available {
-  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%);
   color: white;
 }
 
 .tableLayout.occupied {
-  background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
-  color: #212529;
+  background: linear-gradient(135deg, var(--warning) 0%, var(--warning) 100%);
+  color: var(--text-primary);
 }
 
 .tableLayout.reserved {
-  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+  background: linear-gradient(135deg, var(--info) 0%, var(--info) 100%);
   color: white;
 }
 
 .tableLayout.maintenance {
-  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  background: linear-gradient(135deg, var(--danger) 0%, var(--danger) 100%);
   color: white;
 }
 
@@ -454,19 +454,19 @@
 }
 
 .legendBox.available {
-  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%);
 }
 
 .legendBox.occupied {
-  background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+  background: linear-gradient(135deg, var(--warning) 0%, var(--warning) 100%);
 }
 
 .legendBox.reserved {
-  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+  background: linear-gradient(135deg, var(--info) 0%, var(--info) 100%);
 }
 
 .legendBox.maintenance {
-  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  background: linear-gradient(135deg, var(--danger) 0%, var(--danger) 100%);
 }
 
 /* Responsive Design */

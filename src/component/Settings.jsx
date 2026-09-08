@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Styles from '../styles/Settings.module.css'
 import { getTheme, setTheme } from '../utils/theme'
+import { PiMonitor, PiMoon, PiSun } from 'react-icons/pi'
 
 const Settings = () => {
     const [userData, setUserData] = useState({
@@ -123,7 +124,7 @@ const Settings = () => {
                             </div>
                         </div>
                         <div className={Styles.themeMeta}>
-                            <span className={Styles.themeIcon}>☀️</span>
+                            <span className={Styles.themeIcon}><PiSun aria-hidden="true" /></span>
                             <span className={Styles.themeLabel}>Light Mode</span>
                         </div>
                     </div>
@@ -140,7 +141,7 @@ const Settings = () => {
                             </div>
                         </div>
                         <div className={Styles.themeMeta}>
-                            <span className={Styles.themeIcon}>🌙</span>
+                            <span className={Styles.themeIcon}><PiMoon aria-hidden="true" /></span>
                             <span className={Styles.themeLabel}>Dark Mode</span>
                         </div>
                     </div>
@@ -157,7 +158,7 @@ const Settings = () => {
                             </div>
                         </div>
                         <div className={Styles.themeMeta}>
-                            <span className={Styles.themeIcon}>⚙️</span>
+                            <span className={Styles.themeIcon}><PiMonitor aria-hidden="true" /></span>
                             <span className={Styles.themeLabel}>System Preference</span>
                         </div>
                     </div>

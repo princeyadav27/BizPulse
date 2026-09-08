@@ -20,8 +20,8 @@
 
 .searchInput:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(232, 89, 12, 0.1);
 }
 
 .searchResults {
@@ -67,7 +67,7 @@
 }
 
 .searchResult small {
-  background: #28a745;
+  background: var(--success);
   color: white;
   padding: 0.25rem 0.5rem;
   border-radius: 6px;
@@ -129,7 +129,7 @@
   display: block;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #ff6b6b;
+  color: var(--accent);
 }
 
 .stat span:last-child {
@@ -180,14 +180,14 @@
 }
 
 .categoryTab:hover {
-  border-color: #ff6b6b;
-  color: #ff6b6b;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .categoryTab.active {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
   color: white;
-  border-color: #ff6b6b;
+  border-color: var(--accent);
 }
 
 .menuGrid {
@@ -208,9 +208,9 @@
 }
 
 .menuItem:hover {
-  border-color: #ff6b6b;
+  border-color: var(--accent);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.2);
+  box-shadow: 0 4px 12px rgba(232, 89, 12, 0.2);
 }
 
 .menuItem.unavailable {
@@ -234,11 +234,11 @@
 .price {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #ff6b6b;
+  color: var(--accent);
 }
 
 .addButton {
-  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -255,7 +255,7 @@
 }
 
 .menuItem.unavailable .addButton {
-  background: #6c757d;
+  background: var(--text-secondary);
   cursor: not-allowed;
 }
 
@@ -301,7 +301,7 @@
 
 .input:focus {
   outline: none;
-  border-color: #ff6b6b;
+  border-color: var(--accent);
 }
 
 .emptyCart {
@@ -360,14 +360,14 @@
 }
 
 .quantityBtn:hover {
-  border-color: #ff6b6b;
-  color: #ff6b6b;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .itemTotal {
   font-size: 1rem;
   font-weight: 700;
-  color: #ff6b6b;
+  color: var(--accent);
 }
 
 .paymentMethods {
@@ -408,7 +408,7 @@
 }
 
 .totalRow {
-  border-top: 2px solid #e9ecef;
+  border-top: 2px solid var(--bg-sunken);
   margin-top: 0.5rem;
   padding-top: 1rem;
   font-size: 1.125rem;
@@ -435,7 +435,7 @@
 }
 
 .printBtn {
-  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+  background: linear-gradient(135deg, var(--info) 0%, var(--info) 100%);
   color: white;
 }
 
@@ -445,7 +445,7 @@
 }
 
 .generateBtn {
-  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%);
   color: white;
 }
 
@@ -455,7 +455,7 @@
 }
 
 .generateBtn:disabled {
-  background: #6c757d;
+  background: var(--text-secondary);
   cursor: not-allowed;
   transform: none;
 }
@@ -552,5 +552,5 @@
 
 .orderItem span:last-child {
   font-weight: 700;
-  color: #ff6b6b;
+  color: var(--accent);
 }

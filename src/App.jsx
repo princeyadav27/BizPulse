@@ -1,45 +1,26 @@
-
 import './App.css'
 import TopNav from './component/TopNav'
 import DynamicSideBar from './component/DynamicSideBar'
 import { BrowserRouter } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { initTheme } from './utils/theme'
+import { getIsLoggedIn, subscribeAuth } from './utils/authEvents'
 import { onAuthStateChanged } from 'firebase/auth'
 import { doc, getDoc } from 'firebase/firestore'
 import { auth, db } from './firebase'
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(getIsLoggedIn);
 
   useEffect(() => {
     initTheme();
   }, []);
 
-
+  // React instantly to login/logout instead of polling localStorage
   useEffect(() => {
-    const checkLoginStatus = () => {
-      const loginStatus = localStorage.getItem('isLoggedIn');
-      setIsLoggedIn(loginStatus === 'true');
-    };
-
-    // Initial check
-    checkLoginStatus();
-
-    // Listen for storage changes (for login/logout)
-    const handleStorageChange = () => {
-      checkLoginStatus();
-    };
-
-    window.addEventListener('storage', handleStorageChange);
-    
-    // Also check periodically (for same-tab updates)
-    const interval = setInterval(checkLoginStatus, 1000);
-
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-      clearInterval(interval);
-    };
+    const refresh = () => setIsLoggedIn(getIsLoggedIn());
+    refresh();
+    return subscribeAuth(refresh);
   }, []);
 
   useEffect(() => {
@@ -57,7 +38,8 @@ function App() {
             localStorage.setItem('userData', JSON.stringify(userData));
             localStorage.setItem('isLoggedIn', 'true');
             localStorage.setItem('userEmail', user.email || '');
-            setIsLoggedIn(true);
+          } else {
+            localStorage.setItem('isLoggedIn', 'true');
           }
         } catch (error) {
           console.error("Error loading user profile from Firebase:", error);
@@ -66,8 +48,8 @@ function App() {
         localStorage.removeItem('isLoggedIn');
         localStorage.removeItem('userEmail');
         localStorage.removeItem('userData');
-        setIsLoggedIn(false);
       }
+      setIsLoggedIn(getIsLoggedIn());
     });
 
     return () => unsubscribe();
@@ -75,9 +57,13 @@ function App() {
 
   return (
     <BrowserRouter>
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <div className="app">
         {isLoggedIn && <DynamicSideBar />}
-        <div className="main-content" style={{marginLeft: isLoggedIn ? 'var(--sidebar-width)' : '0'}}>
+        <div
+          className={`main-content ${isLoggedIn ? '' : 'is-public'}`}
+          style={{ marginLeft: isLoggedIn ? 'var(--sidebar-width)' : '0' }}
+        >
           <TopNav />
         </div>
       </div>

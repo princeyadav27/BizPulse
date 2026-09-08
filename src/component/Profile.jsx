@@ -52,10 +52,10 @@ const Profile = () => {
                     businessTypes[type] = {
                         type: type,
                         name: business.businessName || business.pumpName || business.restaurantName || business.retailName || business.serviceName || 'My Business',
-                        icon: type === 'petrol-pump' ? '⛽' : 
-                              type === 'restaurant' ? '🍽️' :
-                              type === 'retail' ? '🏪' :
-                              type === 'service' ? '🔧' : '🏢',
+                        icon: type === 'petrol-pump' ? '' : 
+                              type === 'restaurant' ? '' :
+                              type === 'retail' ? '' :
+                              type === 'service' ? '' : '',
                         displayName: type.replace('-', ' ').toUpperCase()
                     };
                 }
@@ -236,7 +236,7 @@ const Profile = () => {
                             
                             {allBusinesses.length === 0 && (
                                 <div className={Styles.accessItem}>
-                                    <div className={Styles.accessIcon}>🏢</div>
+                                    <div className={Styles.accessIcon}></div>
                                     <div className={Styles.accessInfo}>
                                         <h3>{user.businessName || 'My Business'}</h3>
                                         <p>{user.businessType?.replace('-', ' ').toUpperCase() || 'PETROL PUMP'} - Full Access</p>

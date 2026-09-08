@@ -25,19 +25,19 @@
 
 /* Accent lines based on businessType */
 .petrol-pump::before {
-  background: linear-gradient(to bottom, #4f46e5, #7c3aed);
+  background: linear-gradient(to bottom, var(--accent), #7c3aed);
 }
 
 .restaurant::before {
-  background: linear-gradient(to bottom, #ff6b6b, #ee5a24);
+  background: linear-gradient(to bottom, var(--accent), var(--accent-hover));
 }
 
 .retail::before {
-  background: linear-gradient(to bottom, #10b981, #059669);
+  background: linear-gradient(to bottom, var(--success), var(--success));
 }
 
 .service::before {
-  background: linear-gradient(to bottom, #0284c7, #06b6d4);
+  background: linear-gradient(to bottom, var(--accent-ink), #06b6d4);
 }
 
 .general::before {
@@ -51,7 +51,7 @@
 
 /* Hover highlights for specific businesses */
 .petrol-pump:hover { border-color: rgba(79, 70, 229, 0.3); }
-.restaurant:hover { border-color: rgba(255, 107, 107, 0.3); }
+.restaurant:hover { border-color: rgba(232, 89, 12, 0.3); }
 .retail:hover { border-color: rgba(16, 185, 129, 0.3); }
 .service:hover { border-color: rgba(2, 132, 199, 0.3); }
 .general:hover { border-color: rgba(107, 114, 128, 0.3); }
@@ -96,7 +96,14 @@
 }
 
 .icon {
-  font-size: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
 }
 
 .timer {
@@ -177,10 +184,10 @@
   transition: width 0.5s ease;
 }
 
-.petrol-pump .progressFill { background: linear-gradient(to right, #4f46e5, #7c3aed); }
-.restaurant .progressFill { background: linear-gradient(to right, #ff6b6b, #ee5a24); }
-.retail .progressFill { background: linear-gradient(to right, #10b981, #059669); }
-.service .progressFill { background: linear-gradient(to right, #0284c7, #06b6d4); }
+.petrol-pump .progressFill { background: linear-gradient(to right, var(--accent), #7c3aed); }
+.restaurant .progressFill { background: linear-gradient(to right, var(--accent), var(--accent-hover)); }
+.retail .progressFill { background: linear-gradient(to right, var(--success), var(--success)); }
+.service .progressFill { background: linear-gradient(to right, var(--accent-ink), #06b6d4); }
 .general .progressFill { background: linear-gradient(to right, #6b7280, #374151); }
 
 @keyframes slideIn {

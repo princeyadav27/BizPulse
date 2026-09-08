@@ -4,6 +4,7 @@ import Styles from '../styles/RetailDashboard.module.css'
 import ThoughtsStyles from '../styles/BusinessThoughts.module.css'
 import BusinessThoughts from './BusinessThoughts'
 import BusinessNews from './BusinessNews'
+import { PiChartLine, PiCurrencyInr, PiLightning, PiPackage, PiShoppingCart, PiUsersThree, PiWarning } from 'react-icons/pi'
 
 const RetailDashboard = () => {
     const navigate = useNavigate();
@@ -109,7 +110,7 @@ const RetailDashboard = () => {
                 {/* KPI Cards */}
                 <div className={Styles.kpiGrid}>
                     <div className={Styles.kpiCard}>
-                        <div className={Styles.kpiIcon}>💰</div>
+                        <div className={Styles.kpiIcon}><PiCurrencyInr aria-hidden="true" /></div>
                         <div className={Styles.kpiContent}>
                             <h3>Today's Sales</h3>
                             <p>{formatCurrency(retailData.todaySales)}</p>
@@ -118,7 +119,7 @@ const RetailDashboard = () => {
                     </div>
 
                     <div className={Styles.kpiCard}>
-                        <div className={Styles.kpiIcon}>📦</div>
+                        <div className={Styles.kpiIcon}><PiPackage aria-hidden="true" /></div>
                         <div className={Styles.kpiContent}>
                             <h3>Orders Today</h3>
                             <p>{retailData.todayOrders}</p>
@@ -127,7 +128,7 @@ const RetailDashboard = () => {
                     </div>
 
                     <div className={Styles.kpiCard}>
-                        <div className={Styles.kpiIcon}>👥</div>
+                        <div className={Styles.kpiIcon}><PiUsersThree aria-hidden="true" /></div>
                         <div className={Styles.kpiContent}>
                             <h3>Customers Today</h3>
                             <p>{retailData.totalCustomers}</p>
@@ -136,7 +137,7 @@ const RetailDashboard = () => {
                     </div>
 
                     <div className={Styles.kpiCard}>
-                        <div className={Styles.kpiIcon}>📊</div>
+                        <div className={Styles.kpiIcon}><PiChartLine aria-hidden="true" /></div>
                         <div className={Styles.kpiContent}>
                             <h3>Avg Order Value</h3>
                             <p>{formatCurrency(retailData.avgOrderValue)}</p>
@@ -173,7 +174,7 @@ const RetailDashboard = () => {
                         {retailData.lowStock.map((item, index) => (
                             <div key={index} className={`${Styles.alertCard} ${Styles[item.status]}`}>
                                 <div className={Styles.alertIcon}>
-                                    {item.status === 'critical' ? '⚠️' : '⚡'}
+                                    {item.status === 'critical' ? <PiWarning aria-hidden="true" /> : <PiLightning aria-hidden="true" />}
                                 </div>
                                 <div className={Styles.alertContent}>
                                     <h4>{item.name}</h4>
@@ -235,19 +236,19 @@ const RetailDashboard = () => {
                     <h2>Quick Actions</h2>
                     <div className={Styles.actionsGrid}>
                         <button className={Styles.actionBtn} onClick={() => navigate('/sales-upload')}>
-                            <span className={Styles.btnIcon}>🛒</span>
+                            <span className={Styles.btnIcon}><PiShoppingCart aria-hidden="true" /></span>
                             <span>New Sale</span>
                         </button>
                         <button className={Styles.actionBtn} onClick={() => navigate('/stock-management')}>
-                            <span className={Styles.btnIcon}>📦</span>
+                            <span className={Styles.btnIcon}><PiPackage aria-hidden="true" /></span>
                             <span>Inventory</span>
                         </button>
                         <button className={Styles.actionBtn} onClick={() => navigate('/customers')}>
-                            <span className={Styles.btnIcon}>👥</span>
+                            <span className={Styles.btnIcon}><PiUsersThree aria-hidden="true" /></span>
                             <span>Customers</span>
                         </button>
                         <button className={Styles.actionBtn} onClick={() => navigate('/reports')}>
-                            <span className={Styles.btnIcon}>📊</span>
+                            <span className={Styles.btnIcon}><PiChartLine aria-hidden="true" /></span>
                             <span>Reports</span>
                         </button>
                     </div>

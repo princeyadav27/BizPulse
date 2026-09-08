@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Styles from '../styles/RestaurantStockManagement.module.css'
+import { PiTrash, PiWarning } from 'react-icons/pi'
 
 const RestaurantStockManagement = () => {
     const [stockItems, setStockItems] = useState([]);
@@ -251,7 +252,7 @@ const RestaurantStockManagement = () => {
         <div className={Styles.stockManagement}>
             <div className={Styles.container}>
                 <div className={Styles.header}>
-                    <h1>📦 Stock & Inventory Management</h1>
+                    <h1>Stock & Inventory Management</h1>
                     <div className={Styles.stats}>
                         <div className={Styles.statCard}>
                             <span className={Styles.statNumber}>{stockItems.length}</span>
@@ -271,13 +272,13 @@ const RestaurantStockManagement = () => {
                 {/* Low Stock Alerts */}
                 {lowStockAlerts.length > 0 && (
                     <div className={Styles.alertSection}>
-                        <h2>⚠️ Low Stock Alerts</h2>
+                        <h2>Low Stock Alerts</h2>
                         <div className={Styles.alertsGrid}>
                             {lowStockAlerts.map(item => {
                                 const status = getStockStatus(item);
                                 return (
                                     <div key={item.id} className={Styles.alertCard}>
-                                        <div className={Styles.alertIcon}>⚠️</div>
+                                        <div className={Styles.alertIcon}><PiWarning aria-hidden="true" /></div>
                                         <div className={Styles.alertContent}>
                                             <h4>{item.name}</h4>
                                             <p>Current: {item.currentStock} {item.unit}</p>
@@ -303,19 +304,19 @@ const RestaurantStockManagement = () => {
                         className={`${Styles.tab} ${activeTab === 'inventory' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('inventory')}
                     >
-                        📦 Inventory
+                        Inventory
                     </button>
                     <button 
                         className={`${Styles.tab} ${activeTab === 'suppliers' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('suppliers')}
                     >
-                        🚚 Suppliers
+                        Suppliers
                     </button>
                     <button 
                         className={`${Styles.tab} ${activeTab === 'purchase' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('purchase')}
                     >
-                        📝 Purchase Entry
+                        Purchase Entry
                     </button>
                 </div>
 
@@ -323,7 +324,7 @@ const RestaurantStockManagement = () => {
                 {activeTab === 'inventory' && (
                     <div className={Styles.inventorySection}>
                         <div className={Styles.formSection}>
-                            <h2>➡️ Filter by Category</h2>
+                            <h2>Filter by Category</h2>
                             <select
                                 value={selectedCategory}
                                 onChange={(e) => setSelectedCategory(e.target.value)}
@@ -337,7 +338,7 @@ const RestaurantStockManagement = () => {
                         </div>
 
                         <div className={Styles.formSection}>
-                            <h2>➕ Add Stock Item</h2>
+                            <h2>Add Stock Item</h2>
                             <div className={Styles.itemForm}>
                                 <div className={Styles.formRow}>
                                     <input
@@ -407,7 +408,7 @@ const RestaurantStockManagement = () => {
                                     />
                                 </div>
                                 <button className={Styles.addBtn} onClick={addStockItem}>
-                                    ➕ Add Item
+                                    Add Item
                                 </button>
                             </div>
                         </div>
@@ -467,9 +468,7 @@ const RestaurantStockManagement = () => {
                                             <button 
                                                 className={Styles.deleteBtn}
                                                 onClick={() => deleteStockItem(item.id)}
-                                            >
-                                                🗑️
-                                            </button>
+                                            ><PiTrash aria-hidden="true" /></button>
                                         </div>
                                     </div>
                                 );
@@ -482,7 +481,7 @@ const RestaurantStockManagement = () => {
                 {activeTab === 'suppliers' && (
                     <div className={Styles.suppliersSection}>
                         <div className={Styles.formSection}>
-                            <h2>➕ Add Supplier</h2>
+                            <h2>Add Supplier</h2>
                             <div className={Styles.supplierForm}>
                                 <div className={Styles.formRow}>
                                     <input
@@ -525,7 +524,7 @@ const RestaurantStockManagement = () => {
                                         className={Styles.input}
                                     />
                                     <button className={Styles.addBtn} onClick={addSupplier}>
-                                        ➕ Add Supplier
+                                        Add Supplier
                                     </button>
                                 </div>
                             </div>
@@ -539,14 +538,12 @@ const RestaurantStockManagement = () => {
                                         <button 
                                             className={Styles.deleteBtn}
                                             onClick={() => deleteSupplier(supplier.id)}
-                                        >
-                                            🗑️
-                                        </button>
+                                        ><PiTrash aria-hidden="true" /></button>
                                     </div>
                                     <div className={Styles.supplierDetails}>
-                                        <p>📞 {supplier.phone}</p>
-                                        <p>📧 {supplier.email}</p>
-                                        <p>📍 {supplier.address}</p>
+                                        <p>{supplier.phone}</p>
+                                        <p>{supplier.email}</p>
+                                        <p>{supplier.address}</p>
                                         <div className={Styles.supplierItems}>
                                             <strong>Items:</strong>
                                             <div className={Styles.itemsList}>
@@ -566,7 +563,7 @@ const RestaurantStockManagement = () => {
                 {activeTab === 'purchase' && (
                     <div className={Styles.purchaseSection}>
                         <div className={Styles.formSection}>
-                            <h2>📝 Purchase Entry</h2>
+                            <h2>Purchase Entry</h2>
                             <div className={Styles.purchaseForm}>
                                 <div className={Styles.formRow}>
                                     <input
@@ -640,14 +637,14 @@ const RestaurantStockManagement = () => {
                                     </div>
                                 </div>
                                 <button className={Styles.addBtn} onClick={addPurchaseEntry}>
-                                    📝 Add Purchase Entry
+                                    Add Purchase Entry
                                 </button>
                             </div>
                         </div>
 
                         {/* Purchase History */}
                         <div className={Styles.historySection}>
-                            <h3>📋 Purchase History</h3>
+                            <h3>Purchase History</h3>
                             <div className={Styles.historyGrid}>
                                 {JSON.parse(localStorage.getItem('restaurantPurchases') || '[]').slice(-5).reverse().map(purchase => (
                                     <div key={purchase.id} className={Styles.purchaseCard}>

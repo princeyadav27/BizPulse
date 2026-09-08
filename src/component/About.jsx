@@ -1,102 +1,140 @@
 import { useNavigate } from 'react-router-dom'
 import Styles from '../styles/About.module.css'
+import { getIsLoggedIn } from '../utils/authEvents'
+import { PiArrowRight, PiChartLineUp, PiCheckCircle, PiCompass, PiFileText, PiForkKnife, PiGasPump, PiPackage, PiReceipt, PiStorefront, PiTarget, PiWrench } from 'react-icons/pi'
 
-function About() {
+const OFFERINGS = [
+    {
+        Icon: PiChartLineUp,
+        title: 'Real-time analytics',
+        body: 'Sales, margins and trends update as the shift happens, not after. See which hour, pump, dish or shelf is actually earning.'
+    },
+    {
+        Icon: PiPackage,
+        title: 'Stock management',
+        body: 'Tanks, pantry and shelves count themselves down with every sale, and warn you well before a customer hears "finished".'
+    },
+    {
+        Icon: PiReceipt,
+        title: 'Sales tracking',
+        body: 'One entry at the counter writes the full record — payment split, staff attribution and running totals included.'
+    },
+    {
+        Icon: PiFileText,
+        title: 'Reports that close clean',
+        body: 'Daily close-ups and custom-period exports reconcile to the last unit, ready to hand to your accountant.'
+    }
+];
+
+const AUDIENCES = [
+    { Icon: PiGasPump, label: 'Fuel stations tracking every liter' },
+    { Icon: PiForkKnife, label: 'Restaurants running orders and kitchen stock' },
+    { Icon: PiStorefront, label: 'Retail stores managing counters and inventory' },
+    { Icon: PiWrench, label: 'Service centers logging jobs, parts and history' }
+];
+
+const PRINCIPLES = [
+    'Counts first — every screen starts from real ledger numbers',
+    'Alert before trouble, not after the day is done',
+    'One system per business line, shaped to that trade',
+    'Data that exports cleanly, because it is yours'
+];
+
+const About = () => {
     const navigate = useNavigate();
 
     const handleGetStarted = () => {
-        const isLoggedIn = localStorage.getItem('isLoggedIn');
-        if (isLoggedIn === 'true') {
-            navigate('/dashboard');
-        } else {
-            navigate('/Signup');
-        }
+        navigate(getIsLoggedIn() ? '/dashboard' : '/Signup');
     };
 
     return (
         <div className={Styles.about}>
+            <header className={Styles.hero}>
+                <div className={Styles.container}>
+                    <p className={Styles.kicker}>About BizPulse</p>
+                    <h1 className={Styles.title}>
+                        Built for the owner who counts every liter, plate and part.
+                    </h1>
+                    <p className={Styles.tagline}>
+                        BizPulse is a management workspace for the businesses that run on tight
+                        margins and busy counters — fuel stations, restaurants, retail stores and
+                        service centers.
+                    </p>
+                </div>
+            </header>
+
             <div className={Styles.container}>
-                <div className={Styles.hero}>
-                    <h1>About BizPulse</h1>
-                    <p className={Styles.tagline}>Empowering All Businesses with Smart Management Solutions</p>
-                </div>
-
-                <div className={Styles.content}>
-                    <section className={Styles.section}>
-                        <div className={Styles.sectionIcon}>🎯</div>
-                        <h2>Our Mission</h2>
+                <section className={Styles.mission}>
+                    <div className={Styles.missionIcon}><PiTarget aria-hidden="true" /></div>
+                    <div>
+                        <h2>Why we exist</h2>
                         <p>
-                            To revolutionize petrol pump management by providing an intuitive, comprehensive, 
-                            and data-driven platform that helps business owners make informed decisions, 
-                            optimize operations, and maximize profitability.
+                            Most small and mid-size businesses still close their day with a calculator,
+                            a register book and a phone call to the pump boy or the store manager.
+                            BizPulse replaces that ritual with a single ledger that updates itself as
+                            work happens — so the evening close takes minutes, and the numbers agree
+                            with the cash drawer.
                         </p>
-                    </section>
+                    </div>
+                </section>
 
-                    <section className={Styles.section}>
-                        <div className={Styles.sectionIcon}>💡</div>
-                        <h2>What We Offer</h2>
-                        <div className={Styles.features}>
-                            <div className={Styles.feature}>
-                                <h3>📊 Real-Time Analytics</h3>
-                                <p>Track sales, monitor trends, and visualize your business performance with interactive graphs and insights.</p>
-                            </div>
-                            <div className={Styles.feature}>
-                                <h3>🛢️ Stock Management</h3>
-                                <p>Automated inventory tracking with low-stock alerts and purchase management for seamless operations.</p>
-                            </div>
-                            <div className={Styles.feature}>
-                                <h3>📈 Sales Tracking</h3>
-                                <p>Easy sales upload with automatic calculations and comprehensive transaction history.</p>
-                            </div>
-                            <div className={Styles.feature}>
-                                <h3>📄 Smart Reports</h3>
-                                <p>Generate detailed reports for sales, stock, and financial analysis to support business decisions.</p>
-                            </div>
-                        </div>
-                    </section>
+                <section className={Styles.section}>
+                    <div className={Styles.sectionHead}>
+                        <span className={Styles.sectionKicker}>What you get</span>
+                        <h2>Four tools, one ledger</h2>
+                    </div>
+                    <div className={Styles.features}>
+                        {OFFERINGS.map((item) => (
+                            <article key={item.title} className={Styles.feature}>
+                                <span className={Styles.featureIcon}><item.Icon aria-hidden="true" /></span>
+                                <h3>{item.title}</h3>
+                                <p>{item.body}</p>
+                            </article>
+                        ))}
+                    </div>
+                </section>
 
-                    <section className={Styles.section}>
-                        <div className={Styles.sectionIcon}>🚀</div>
-                        <h2>Why Choose Us</h2>
-                        <ul className={Styles.benefits}>
-                            <li>✅ User-friendly interface designed for petrol pump owners</li>
-                            <li>✅ Real-time data synchronization across all modules</li>
-                            <li>✅ Automated stock deduction based on sales</li>
-                            <li>✅ Comprehensive analytics with actionable insights</li>
-                            <li>✅ Secure data storage and management</li>
-                            <li>✅ Mobile-responsive design for on-the-go access</li>
-                        </ul>
-                    </section>
+                <section className={Styles.section}>
+                    <div className={Styles.sectionHead}>
+                        <span className={Styles.sectionKicker}>Who it serves</span>
+                        <h2>Shaped for your trade, not a generic template</h2>
+                    </div>
+                    <ul className={Styles.audiences}>
+                        {AUDIENCES.map((item) => (
+                            <li key={item.label}>
+                                <span className={Styles.audienceIcon}><item.Icon aria-hidden="true" /></span>
+                                <span>{item.label}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
 
-                    <section className={Styles.section}>
-                        <div className={Styles.sectionIcon}>👥</div>
-                        <h2>Who We Serve</h2>
-                        <p>
-                            BizPulse is designed for business owners, managers, and operators who want to
-                            streamline their daily operations, reduce manual work, and gain better visibility
-                            into their business performance. Whether you run a petrol pump, restaurant, retail
-                            store, or service center, our platform scales with your needs.
-                        </p>
-                    </section>
-
-                    <section className={Styles.section}>
-                        <div className={Styles.sectionIcon}>🌟</div>
-                        <h2>Our Vision</h2>
-                        <p>
-                            To become the leading management information system for petrol pumps across India, 
-                            helping thousands of businesses operate more efficiently and profitably through 
-                            technology-driven solutions.
-                        </p>
-                    </section>
-                </div>
+                <section className={Styles.principles}>
+                    <div className={Styles.principlesIntro}>
+                        <span className={Styles.principlesIcon}><PiCompass aria-hidden="true" /></span>
+                        <h2>How we build</h2>
+                        <p>Four rules decide every screen that ships in BizPulse.</p>
+                    </div>
+                    <ul className={Styles.principlesList}>
+                        {PRINCIPLES.map((item, i) => (
+                            <li key={item} style={{ animationDelay: `${i * 80}ms` }}>
+                                <PiCheckCircle aria-hidden="true" />
+                                <span>{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
 
                 <div className={Styles.cta}>
-                    <h2>Ready to Transform Your Business?</h2>
-                    <p>Join hundreds of business owners who trust BizPulse for their daily operations</p>
-                    <button className={Styles.ctaButton} onClick={handleGetStarted}>Get Started Today</button>
+                    <h2>See it on your own numbers</h2>
+                    <p>Create a workspace, pick your business line, and close tonight's shift with clean math.</p>
+                    <button className={Styles.ctaButton} onClick={handleGetStarted}>
+                        Open your workspace <PiArrowRight aria-hidden="true" />
+                    </button>
                 </div>
             </div>
         </div>
     );
-} 
+};
+
 export default About;

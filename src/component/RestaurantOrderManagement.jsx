@@ -174,10 +174,10 @@ const RestaurantOrderManagement = () => {
 
     const getStatusText = (status) => {
         switch(status) {
-            case 'preparing': return '🍳 Preparing';
-            case 'ready': return '✅ Ready';
-            case 'served': return '🍽️ Served';
-            default: return '📋 Pending';
+            case 'preparing': return 'Preparing';
+            case 'ready': return 'Ready';
+            case 'served': return 'Served';
+            default: return 'Pending';
         }
     };
 
@@ -202,12 +202,12 @@ const RestaurantOrderManagement = () => {
         <div className={Styles.orderManagement}>
             <div className={Styles.container}>
                 <div className={Styles.header}>
-                    <h1>🍽️ Order Management</h1>
+                    <h1>Order Management</h1>
                     <button 
                         className={Styles.newOrderBtn}
                         onClick={() => setShowNewOrderForm(!showNewOrderForm)}
                     >
-                        {showNewOrderForm ? '❌ Cancel' : '➕ New Order'}
+                        {showNewOrderForm ? 'Cancel' : 'New Order'}
                     </button>
                 </div>
 
@@ -216,25 +216,25 @@ const RestaurantOrderManagement = () => {
                         className={`${Styles.tab} ${activeTab === 'all' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('all')}
                     >
-                        📋 All Orders
+                        All Orders
                     </button>
                     <button 
                         className={`${Styles.tab} ${activeTab === 'dine-in' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('dine-in')}
                     >
-                        🍽️ Dine-in Orders
+                        Dine-in Orders
                     </button>
                     <button 
                         className={`${Styles.tab} ${activeTab === 'takeaway' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('takeaway')}
                     >
-                        🥡 Takeaway Orders
+                        Takeaway Orders
                     </button>
                     <button 
                         className={`${Styles.tab} ${activeTab === 'online' ? Styles.active : ''}`}
                         onClick={() => setActiveTab('online')}
                     >
-                        📱 Online Orders
+                        Online Orders
                     </button>
                 </div>
 
@@ -265,7 +265,7 @@ const RestaurantOrderManagement = () => {
                                 <h3>Customer Details</h3>
                                 <input
                                     type="text"
-                                    placeholder="🔍 Search Customer by Name or Phone"
+                                    placeholder="Search Customer by Name or Phone"
                                     value={customerSearch}
                                     onChange={(e) => setCustomerSearch(e.target.value)}
                                     className={Styles.input}
@@ -350,7 +350,7 @@ const RestaurantOrderManagement = () => {
                                             className={`${Styles.categoryBtn} ${selectedCategory === cat ? Styles.activeCategory : ''}`}
                                             onClick={() => setSelectedCategory(cat)}
                                         >
-                                            {cat === 'all' ? '🍽️ All' : cat}
+                                            {cat === 'all' ? 'All' : cat}
                                         </button>
                                     ))}
                                 </div>
@@ -384,7 +384,7 @@ const RestaurantOrderManagement = () => {
                                         <div className={Styles.totalSection}>
                                             <h3>Total: ₹{calculateTotal()}</h3>
                                             <button className={Styles.createBtn} onClick={createOrder}>
-                                                🍽️ Create Order
+                                                Create Order
                                             </button>
                                         </div>
                                     </>

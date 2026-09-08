@@ -33,7 +33,7 @@
 }
 
 .businessBadge {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
@@ -69,14 +69,16 @@
 }
 
 .kpiIcon {
-  font-size: 3rem;
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
-  width: 80px;
-  height: 80px;
-  border-radius: 12px;
+  font-size: 1.75rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .kpiContent h3 {
@@ -96,8 +98,8 @@
 .kpiChange {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #28a745;
-  background-color: #d4edda;
+  color: var(--success);
+  background-color: var(--success-soft);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
 }
@@ -155,7 +157,7 @@
 .itemRevenue p {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #28a745;
+  color: var(--success);
   margin: 0;
 }
 
@@ -197,11 +199,11 @@
 }
 
 .actionBtn:hover {
-  border-color: #ff6b6b;
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  border-color: var(--accent);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+  box-shadow: 0 4px 12px rgba(232, 89, 12, 0.4);
 }
 
 .btnIcon {
@@ -246,7 +248,7 @@
 .staffCard p {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #28a745;
+  color: var(--success);
   margin: 0;
 }
 
@@ -266,32 +268,32 @@
 }
 
 .profit span:first-child {
-  color: #28a745;
+  color: var(--success);
   font-weight: 600;
 }
 
 .profit span:last-child {
-  color: #28a745;
+  color: var(--success);
   font-weight: 700;
 }
 
 .expense span:first-child {
-  color: #dc3545;
+  color: var(--danger);
   font-weight: 600;
 }
 
 .expense span:last-child {
-  color: #dc3545;
+  color: var(--danger);
   font-weight: 700;
 }
 
 .alert {
-  border: 2px solid #dc3545 !important;
+  border: 2px solid var(--danger) !important;
   background: #fff5f5 !important;
 }
 
 .alert .kpiIcon {
-  background: #dc3545 !important;
+  background: var(--danger) !important;
 }
 
 .summarySection {
@@ -341,13 +343,13 @@
 
 .progress {
   height: 100%;
-  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  background: linear-gradient(135deg, var(--success) 0%, var(--success) 100%);
   border-radius: 4px;
   transition: width 0.3s ease;
 }
 
 .progress.warning {
-  background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+  background: linear-gradient(135deg, var(--warning) 0%, var(--warning) 100%);
 }
 
 .performance span {

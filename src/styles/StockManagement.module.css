@@ -26,7 +26,7 @@
 }
 
 .businessBadge {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
@@ -90,8 +90,8 @@
 .formGroup input:focus,
 .formGroup select:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(232, 89, 12, 0.1);
 }
 
 .formActions {
@@ -102,7 +102,7 @@
 }
 
 .capacityBtn {
-  background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+  background: linear-gradient(135deg, var(--text-secondary) 0%, var(--text-primary) 100%);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -119,7 +119,7 @@
 }
 
 .updateCapacityBtn {
-  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+  background: linear-gradient(135deg, var(--info) 0%, var(--info) 100%);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -131,12 +131,12 @@
 }
 
 .updateCapacityBtn:hover {
-  background: linear-gradient(135deg, #138496 0%, #0f5665 100%);
+  background: linear-gradient(135deg, var(--info) 0%, #0f5665 100%);
   transform: translateY(-1px);
 }
 
 .cancelBtn {
-  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  background: linear-gradient(135deg, var(--danger) 0%, var(--danger) 100%);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -148,7 +148,7 @@
 }
 
 .cancelBtn:hover {
-  background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+  background: linear-gradient(135deg, var(--danger) 0%, var(--danger) 100%);
   transform: translateY(-1px);
 }
 
@@ -178,7 +178,7 @@
 }
 
 .submitBtn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -193,7 +193,7 @@
 
 .submitBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 12px rgba(232, 89, 12, 0.4);
 }
 
 .stockGrid {
@@ -385,7 +385,7 @@
 }
 
 .alertBtn {
-  background: #dc3545;
+  background: var(--danger);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -396,13 +396,13 @@
 }
 
 .alertBtn:hover {
-  background: #c82333;
+  background: var(--danger);
 }
 
 .noAlerts {
   text-align: center;
   padding: 2rem;
-  color: #28a745;
+  color: var(--success);
 }
 
 .successIcon {

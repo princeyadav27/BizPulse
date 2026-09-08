@@ -4,6 +4,7 @@ import Styles from '../styles/ServiceDashboard.module.css'
 import ThoughtsStyles from '../styles/BusinessThoughts.module.css'
 import BusinessThoughts from './BusinessThoughts'
 import BusinessNews from './BusinessNews'
+import { PiCalendarCheck, PiCurrencyInr, PiGearSix, PiStar, PiUsersThree, PiWrench } from 'react-icons/pi'
 
 const ServiceDashboard = () => {
     const navigate = useNavigate();
@@ -122,7 +123,7 @@ const ServiceDashboard = () => {
                 {/* KPI Cards */}
                 <div className={Styles.kpiGrid}>
                     <div className={Styles.kpiCard}>
-                        <div className={Styles.kpiIcon}>🔧</div>
+                        <div className={Styles.kpiIcon}><PiWrench aria-hidden="true" /></div>
                         <div className={Styles.kpiContent}>
                             <h3>Today's Appointments</h3>
                             <p>{serviceData.todayAppointments}</p>
@@ -131,7 +132,7 @@ const ServiceDashboard = () => {
                     </div>
 
                     <div className={Styles.kpiCard}>
-                        <div className={Styles.kpiIcon}>💰</div>
+                        <div className={Styles.kpiIcon}><PiCurrencyInr aria-hidden="true" /></div>
                         <div className={Styles.kpiContent}>
                             <h3>Today's Revenue</h3>
                             <p>{formatCurrency(serviceData.todayRevenue)}</p>
@@ -140,7 +141,7 @@ const ServiceDashboard = () => {
                     </div>
 
                     <div className={Styles.kpiCard}>
-                        <div className={Styles.kpiIcon}>👨‍🔧</div>
+                        <div className={Styles.kpiIcon}><PiUsersThree aria-hidden="true" /></div>
                         <div className={Styles.kpiContent}>
                             <h3>Active Technicians</h3>
                             <p>{serviceData.activeTechnicians}/{serviceData.totalTechnicians}</p>
@@ -149,7 +150,7 @@ const ServiceDashboard = () => {
                     </div>
 
                     <div className={Styles.kpiCard}>
-                        <div className={Styles.kpiIcon}>⭐</div>
+                        <div className={Styles.kpiIcon}><PiStar aria-hidden="true" /></div>
                         <div className={Styles.kpiContent}>
                             <h3>Customer Satisfaction</h3>
                             <p>{serviceData.customerSatisfaction}/5.0</p>
@@ -246,19 +247,19 @@ const ServiceDashboard = () => {
                     <h2>Quick Actions</h2>
                     <div className={Styles.actionsGrid}>
                         <button className={Styles.actionBtn} onClick={() => navigate('/sales-upload')}>
-                            <span className={Styles.btnIcon}>📅</span>
+                            <span className={Styles.btnIcon}><PiCalendarCheck aria-hidden="true" /></span>
                             <span>New Appointment</span>
                         </button>
                         <button className={Styles.actionBtn} onClick={() => navigate('/sales-upload')}>
-                            <span className={Styles.btnIcon}>🔧</span>
+                            <span className={Styles.btnIcon}><PiWrench aria-hidden="true" /></span>
                             <span>Job Management</span>
                         </button>
                         <button className={Styles.actionBtn} onClick={() => navigate('/stock-management')}>
-                            <span className={Styles.btnIcon}>⚙️</span>
+                            <span className={Styles.btnIcon}><PiGearSix aria-hidden="true" /></span>
                             <span>Parts Inventory</span>
                         </button>
                         <button className={Styles.actionBtn} onClick={() => navigate('/customers')}>
-                            <span className={Styles.btnIcon}>👥</span>
+                            <span className={Styles.btnIcon}><PiUsersThree aria-hidden="true" /></span>
                             <span>Customer Management</span>
                         </button>
                     </div>
